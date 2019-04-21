@@ -8,11 +8,11 @@ import Grade_K.KCC1_3._02_CountfromX as KCC2
 import Grade_K.KCC1_3._03_CountTo20 as KCC3
 import Grade_K.BONUS.bonus as Bonus
 
-class TestCases:
+class TestCasesK:
     testcnt = 0
     # n is user specified number of test cases
-    def __init__(self, n):
-        self.testcnt = n
+    def __init__(self):
+        return
 
     def Number2NameCases(self):
         KCC0.Number2Name(3)
