@@ -8,7 +8,6 @@ import Grade_K.KCC1_3._02_CountfromX as KCC2
 import Grade_K.KCC1_3._03_CountTo20 as KCC3
 import Grade_K.BONUS.bonus as Bonus
 
-
 class TestCases:
     testcnt = 0
     # n is user specified number of test cases
@@ -24,10 +23,10 @@ class TestCases:
 
 
     def Name2NumberCases(self):
-        KCC0.Number2Name('three')
-        KCC0.Number2Name('seven')
-        KCC0.Number2Name('fifteen')
-        KCC0.Number2Name('tweenty-two')
+        KCC0.Name2Number('three')
+        KCC0.Name2Number('seven')
+        KCC0.Name2Number('fifteen')
+        KCC0.Name2Number('twenty-two')
 
     def countNumby10sCases(self):
         KCC1.countNumby10s(100, 1)
@@ -87,4 +86,5 @@ class TestCases:
         Bonus.guessValue(41)
         Bonus.guessValue(50)
 
-
+    
+        

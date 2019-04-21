@@ -37,15 +37,15 @@ def addTest(a, b):
     ans = io.readStdin()
     while ans != (a + b):
         print "Wrong! Please calculate the value again"
-        ans = readStdin()
+        ans = io.readStdin()
 
     print "You got it. The correct answer is %d" %(ans)
 
 def subtractTest(a, b):
-    ans = readStdin()
+    ans = io.readStdin()
     while ans != (a - b):
         print emoji.emojize(':thumbs_down: :thumbs_down: :thumbs_down: '), "Wrong! Please calculate the value again"
-        ans = readStdin()
+        ans = io.readStdin()
 
     print emoji.emojize(':thumbs_up: :thumbs_up: :thumbs_up: '), "You got it. The correct answer is %d" %(ans)
 

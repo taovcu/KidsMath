@@ -18,13 +18,12 @@ from Grade_K.TestCases import TestCases
 def main():
     print(">>>> Joy Coding Main Function")
     k = TestCases(3)
-    k.AddTestCases()
-    k.writeNumCases()
+    object_methods = [method_name for method_name in dir(k)                     if callable(getattr(k, method_name))]
+    object_methods.remove('__init__')
 
-    #KCC0.Number2Name(3)
-    #KCC1.countNumby10s(40, 1)
-    #KCC2.countNumfromX(3, 5)
-    #KCC3.countNum(5, 11)
+    # recursively call all the test cases
+    for name in object_methods:
+        getattr(k, name)()
 
 if __name__ == '__main__':
     main()

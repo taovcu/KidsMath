@@ -16,10 +16,10 @@ def Number2Name(a):
         print ('Wrong')
 
 def Name2Number(a):
-    print ('Spell {} in number:'.format(a))
+    print ('Write {} in number:'.format(a))
     ans = int(sys.stdin.readline()[:-1])
     if ans == w2n.word_to_num(a):
         print ('Correct')
     else:
-        print ('Wrong')
+        print ('Wrong. The correct answer is {}'.format(w2n.word_to_num(a)))
 
