@@ -23,9 +23,3 @@ def Name2Number(a):
     else:
         print ('Wrong')
 
-# Test cases
-def KnowNumberNames():
-    for i in range(3):
-        Number2Name(i)
-
-    Name2Number('seven')
