@@ -1,10 +1,16 @@
 # Count to 20 by ones
 import time
+import sys
+import inflect
+from word2number import w2n
 
-def countNum(m):
-    print "Count with me from 1 to %d" % (m)
-    for i in range(1, m+1):
-        print i
-        # wait for 1 second
-        time.sleep(1)
+def writeNum(m, n):
+    print "Write number from %d to %d" % (m, n)
+    for i in range(m, n+1):
+        print ('Write {} in number:'.format(inflect.engine().number_to_words(i)))
+        ans = int(sys.stdin.readline()[:-1])
+        if ans == i:
+            print ('Correct')
+        else:
+            print ('Wrong')
 
