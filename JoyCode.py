@@ -15,24 +15,32 @@ import numpy as np
 import emoji
 
 # Import Packages
-from Grade_K.TestCases import TestCasesK
+from Grade_K.TestCases import TestCases
 
-
-def main():
-    print(">>>> Joy Coding Main Function")
-
+def chooseGrade():
+    gradeList = [str(i) for i in range(1,9)]
+    gradeList = ['k'] + gradeList
     while 1:
         print("Please choose the Grade of the student:")
         print("    k for Kindergarten")
         print("    [1-8] for Grade 1 to 8")
         grade = io.readChar()
-        if grade in ['k', 'K']:
-            break
+        if grade in gradeList:
+            return grade
         else:
-            print("Only k is currently supported")
+            print("Only Grade {} is currently supported".format(gradeList))
             continue
 
-    k = TestCasesK()
+def main():
+    print(">>>> Joy Coding Main Function")
+
+    grade = chooseGrade()
+    k = TestCases(grade)
+    while not k:
+        print("Selected Grade {} has not been implemented yet".format(k))
+        grade = chooseGrade()
+        k = TestCases(grade)
+
     object_methods = [method_name for method_name in dir(k)                     if callable(getattr(k, method_name))]
     object_methods.remove('__init__')
 

@@ -8,9 +8,40 @@ import Grade_K.KCC1_3._02_CountfromX as KCC2
 import Grade_K.KCC1_3._03_CountTo20 as KCC3
 import Grade_K.BONUS.bonus as Bonus
 
+def TestCases(g):
+    if g == 'k':
+            return TestCasesK()
+    elif g == '1':
+            print("Grade {} Test Cases have not been created yet".format(g))
+            return
+    elif g == '2':
+        print("Grade {} Test Cases have not been created yet".format(g))
+        return;
+    elif g == '3':
+        print("Grade {} Test Cases have not been created yet".format(g))
+        return
+    elif g == '4':
+        print("Grade {} Test Cases have not been created yet".format(g))
+        return
+    elif g == '5':
+        print("Grade {} Test Cases have not been created yet".format(g))
+        return
+    elif g == '6':
+        print("Grade {} Test Cases have not been created yet".format(g))
+        return
+    elif g == '7':
+        print("Grade {} Test Cases have not been created yet".format(g))
+        return
+    elif g == '8':
+        print("Grade {} Test Cases have not been created yet".format(g))
+        return
+    else:
+        print("Invalid Grade {}".format(g))
+        return
+
 class TestCasesK:
     testcnt = 0
-    # n is user specified number of test cases
+    # n is user specified number of test elif g ==s
     def __init__(self):
         return
 
@@ -86,5 +117,3 @@ class TestCasesK:
         Bonus.guessValue(41)
         Bonus.guessValue(50)
 
-    
-        
