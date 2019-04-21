@@ -1,9 +1,12 @@
-# JoyCoding
+# Joyful Math Tests for Kids
 
-Developer: Tao Lu, PhD
+This is a project aims to make kids solve mathematical problem in fun ways.
 
-This is a repository created to make kids solve mathematical problem in fun ways.
+The developers plan to design math problems based on Common Core State Standards for Mathematics. The document is available at [CCSS Mathematics](http://www.k12.wa.us/CoreStandards/Mathematics/pubdocs/CCSSI_MathStandards.pdf)
 
-I plan to design math problems based on Common Core State Standards for Mathematics. The document is available at [CCSS Mathematics](http://www.k12.wa.us/CoreStandards/Mathematics/pubdocs/CCSSI_MathStandards.pdf)
+Parents and students are welcomed to use materials in this project.
 
-You are welcomed to use and contribute to this project.
+Developers are welcomed to contribute codes and intelligence to this project. If you are interested, please contact me to get more information about how and where to start from. Any contribution or comment is highly appreciated.
+
+## Developers
+Tao Lu
