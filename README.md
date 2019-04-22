@@ -1,8 +1,8 @@
 # Joyful Math Tests for Kids
 
-This is a project aims to make kids solve mathematical problem in fun ways.
+This project aims to enable kids solve mathematical problems in fun ways.
 
-The developers plan to design math problems based on Common Core State Standards for Mathematics. The document is available at [CCSS Mathematics](http://www.k12.wa.us/CoreStandards/Mathematics/pubdocs/CCSSI_MathStandards.pdf)
+The developers plan to design math problems based on Common Core State Standards for Mathematics. The document is available at [CCSS Mathematics](http://www.k12.wa.us/CoreStandards/Mathematics/pubdocs/CCSSI_MathStandards.pdf).
 
 Parents and students are welcomed to use materials in this project.
 
