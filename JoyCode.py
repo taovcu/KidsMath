@@ -6,6 +6,9 @@
 import sys
 sys.path.append('.')
 
+from subprocess import Popen, PIPE, STDOUT
+
+
 import Helpers.IO as io
 import time
 import random
@@ -24,9 +27,10 @@ def chooseGrade():
     gradeList = [str(i) for i in range(1,9)]
     gradeList = ['k'] + gradeList
     while 1:
-        print("Please choose the Grade of the student:")
-        print("    k for Kindergarten")
-        print("    [1-8] for Grade 1 to 8")
+        io.printTTS("Please choose the Grade of the student:")
+
+        io.printTTS("    k for Kindergarten")
+        io.printTTS("    [1-8] for Grade 1 to 8")
         grade = io.readChar()
         if grade in gradeList:
             return grade
@@ -36,6 +40,7 @@ def chooseGrade():
 
 def main():
     print(">>>> Joy Coding Main Function")
+
 
     grade = chooseGrade()
     k = TestCases(grade)

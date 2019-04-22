@@ -11,5 +11,5 @@ def countNumfromX(x, y):
     if ans == range(x, y+1):
         print(emoji.emojize(':thumbs_up: ')*3, "You got it.")
     else:
-        print(emoji.emojize(':thumbs_down: ')*3, "The correct sequence is ", range(x, y+1))
+        print(emoji.emojize(':thumbs_down: ')*3, "The correct sequence is ", [i for i in range(x, y+1)])
 

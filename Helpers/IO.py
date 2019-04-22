@@ -1,4 +1,5 @@
 import sys
+import Helpers.text2speech as TTS
 
 def readChar():
     try:
@@ -16,3 +17,7 @@ def readInt():
         line = sys.stdin.readline()[:-1]
     return int(line)
 
+def printTTS(t):
+    print(t)
+    TTS.speak(t)
+    

@@ -63,4 +63,4 @@ def compareItems(a, b, item):
     else:
         print(emoji.emojize(':thumbs_down: ')*3, "Wrong. Left side has %d %s, but right side has {} {}" %(a,item, b,item))
 
-    raw_input("Press Enter to continue...")
+    input("Press Enter to continue...")
