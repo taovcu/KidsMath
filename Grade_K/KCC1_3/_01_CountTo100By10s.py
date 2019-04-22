@@ -19,19 +19,19 @@ def countNumby10s(m, t):
         # wait for 1 second
         time.sleep(1)
 
-    print 'Is there any number missing in this sequence?'
+    print('Is there any number missing in this sequence?')
     ans = sys.stdin.readline()[0]
     while ans not in ['n', 'N', 'y', 'Y']:
-        print "You can only input 'n' or 'y'"
+        print("You can only input 'n' or 'y'")
         ans = sys.stdin.readline()[0]
     if (ans in ['y', 'Y'] and t):
-        print emoji.emojize(':thumbs_up: ')*3, "You got it. %d is missing" %(t)
+        print(emoji.emojize(':thumbs_up: ')*3, "You got it. {} is missing".format(t))
     elif (ans in ['n', 'N'] and not t):
-        print emoji.emojize(':thumbs_up: ')*3, "You got it. All numbers are there"
+        print(emoji.emojize(':thumbs_up: ')*3, "You got it. All numbers are there")
     else:
         if ans in ['y', 'Y']: 
-            print emoji.emojize(':thumbs_down: ')*3, "Wrong. You say there is some number missing, but actually all numbers are in the sequence"
+            print(emoji.emojize(':thumbs_down: ')*3, "Wrong. You say there is some number missing, but actually all numbers are in the sequence")
         if ans in ['n', 'N']: 
-            print emoji.emojize(':thumbs_down: ')*3, "Wrong. You say there is no number missing, but actually %d is NOT in the sequence" %(t)
+            print(emoji.emojize(':thumbs_down: ')*3, "Wrong. You say there is no number missing, but actually {} is NOT in the sequence".format(t))
 
-    raw_input("Press Enter to continue...")
+    input("Press Enter to continue...")

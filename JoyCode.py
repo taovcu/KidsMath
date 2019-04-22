@@ -16,6 +16,10 @@ import emoji
 
 # Import Packages
 from Grade_K.TestCases import TestCases
+import Helpers.RemoveSysMethods as RM
+
+sysMethods = ['__class__', '__delattr__', '__dir__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']
+
 
 def chooseGrade():
     gradeList = [str(i) for i in range(1,9)]
@@ -41,8 +45,9 @@ def main():
         grade = chooseGrade()
         k = TestCases(grade)
 
-    object_methods = [method_name for method_name in dir(k)                     if callable(getattr(k, method_name))]
-    object_methods.remove('__init__')
+    object_methods = [method_name for method_name in dir(k) 
+                      if callable(getattr(k, method_name))]
+    RM.RemoveSysMethods(object_methods)
 
     print("Please specify how many tests you want try:")
     testcnt = io.readInt()
@@ -54,6 +59,7 @@ def main():
        RandomMethodList.append(m)
        object_methods.remove(m)
 
+    print(RandomMethodList)
     # recursively call all the test cases
     for name in RandomMethodList:
         getattr(k, name)()
