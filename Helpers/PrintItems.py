@@ -24,4 +24,5 @@ def printHeart():
     plt.plot(x,y)
     plt.show()
 
-
+def emojiPrint(m, n):
+    print(emoji.emojize(':{}: '.format(m) * n))

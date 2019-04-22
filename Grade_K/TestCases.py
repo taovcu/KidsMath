@@ -6,6 +6,7 @@ import Grade_K.KCC1_3._00_NumberNames as KCC0
 import Grade_K.KCC1_3._01_CountTo100By10s as KCC1
 import Grade_K.KCC1_3._02_CountfromX as KCC2
 import Grade_K.KCC1_3._03_CountTo20 as KCC3
+import Grade_K.KCC4_5._04_CountToTell as KCC4
 import Grade_K.BONUS.bonus as Bonus
 
 def TestCases(g):
@@ -70,6 +71,16 @@ class TestCasesK:
 
     def writeNumCases(self):
         KCC3.writeNum(0, 20)
+
+    def countObjectCases(self):
+        KCC4.countObjects('pear', 3)
+        KCC4.countObjects('apple', 5)
+        KCC4.countObjects('gift', 8)
+        KCC4.countObjects('tomato', 13)
+        KCC4.countObjects('watermelon', 11)
+        KCC4.countObjects('corn', 7)
+        KCC4.countObjects('banana', 17)
+        KCC4.countObjects('grapes', 9)
 
     def AddTestCases(self):
         Bonus.addTest(1, 2)
