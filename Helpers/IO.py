@@ -10,12 +10,9 @@ def readChar():
     return line[0]
 
 def readInt():
-    try:
-        line = sys.stdin.readline()[:-1]
-    except KeyboardInterrupt:
-        return
+    line = sys.stdin.readline()[:-1]
     while not line.isdigit() or line == "":
         print("input is not an int")
-        readInt()
+        line = sys.stdin.readline()[:-1]
     return int(line)
 

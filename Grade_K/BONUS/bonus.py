@@ -59,7 +59,7 @@ def compareItems(a, b, item):
     if (ans in ['y', 'Y'] and a == b):
         print(emoji.emojize(':thumbs_up: ')*3, "You got it. Both left and right sides have {} {}".format(a,item))
     elif (ans in ['n', 'N'] and a != b):
-        print(emoji.emojize(':thumbs_up: ')*3, "You got it. Left side has {} {}, but right side has {} {}" %(a,item, b,item))
+        print(emoji.emojize(':thumbs_up: ')*3, "You got it. Left side has {} {}, but right side has {} {}".format(a,item, b,item))
     else:
         print(emoji.emojize(':thumbs_down: ')*3, "Wrong. Left side has %d %s, but right side has {} {}" %(a,item, b,item))
 
