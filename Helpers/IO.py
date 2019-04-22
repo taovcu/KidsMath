@@ -1,5 +1,6 @@
 import sys
 import Helpers.text2speech as TTS
+import platform
 
 def readChar():
     try:
@@ -19,5 +20,7 @@ def readInt():
 
 def printTTS(t):
     print(t)
-    TTS.speak(t)
-    
+
+    #Todo: 'Windows'/'Darwin' TTS
+    if platform.system() == 'Linux':
+        TTS.speak(t)
