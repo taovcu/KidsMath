@@ -22,8 +22,8 @@ def readInt():
         printTTS("Please try input the number from the key board:")
         t = sys.stdin.readline()[:-1]
 
-    while not t.isdigit() or line == "":
-        printTTS("input is not an int, input again")
+    while not t.isdigit() or t == "":
+        printTTS("Please try input the number from the key board:")
         t = sys.stdin.readline()[:-1]
     return int(t)
 

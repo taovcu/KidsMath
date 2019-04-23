@@ -36,7 +36,7 @@ def stt():
     # if a RequestError or UnknownValueError exception is caught,
     #     update the response object accordingly
     try:
-        response["transcription"] = r.recognize_google(audio)
+        response["text"] = r.recognize_google(audio)
     except sr.RequestError:
         # API was unreachable or unresponsive
         response["error"] = "API unavailable"
