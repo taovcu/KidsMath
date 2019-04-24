@@ -9,6 +9,7 @@ import Grade_K.KCC1_3._01_CountTo100By10s as KCC1
 import Grade_K.KCC1_3._02_CountfromX as KCC2
 import Grade_K.KCC1_3._03_CountTo20 as KCC3
 import Grade_K.KCC4_5._04_5_CountToTell as KCC4
+import Grade_K.KCC6_7._06_7_CompareNum as KCC6
 import Grade_K.BONUS.bonus as Bonus
 
 def TestCases(g):
@@ -83,6 +84,18 @@ class TestCasesK:
         KCC4.countObjects('corn', 7)
         KCC4.countObjects('banana', 17)
         KCC4.countObjects('grapes', 9)
+
+    def compareObjectCases(self):
+        KCC6.compareObjects('pear', 3, 4)
+        KCC6.compareObjects('tomato', 7, 9)
+        KCC6.compareObjects('grapes', 11, 13)
+        KCC6.compareObjects('watermelon', 15, 15)
+
+    def compareNumCases(self):
+        KCC6.compareNum(3, 4)
+        KCC6.compareNum(7, 9)
+        KCC6.compareNum(11, 13)
+        KCC6.compareNum(15, 15)
 
     def AddTestCases(self):
         Bonus.addTest(1, 2)
