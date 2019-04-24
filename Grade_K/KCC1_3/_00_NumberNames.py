@@ -2,24 +2,20 @@
 # pip install word2number
 
 import sys
+sys.path.append('../../')
+
 import inflect
 from word2number import w2n
-
+import Helpers.IO as io
+import Helpers.CheckAns as CA
 
 def Number2Name(a):
-    print ('Spell {} in Characters:'.format(a))
-    line = sys.stdin.readline()[:-1]
+    io.printTTS('Spell {} in Characters:'.format(a))
+    line = io.readLine()
     p = inflect.engine()
-    if line == p.number_to_words(a):
-        print ('Correct')
-    else:
-        print ('Wrong')
+    CA.checkEqual(line, p.number_to_words(a))
 
 def Name2Number(a):
     print ('Write {} in number:'.format(a))
-    ans = int(sys.stdin.readline()[:-1])
-    if ans == w2n.word_to_num(a):
-        print ('Correct')
-    else:
-        print ('Wrong. The correct answer is {}'.format(w2n.word_to_num(a)))
-
+    ans = io.readInt()
+    CA.checkEqual(ans, w2n.word_to_num(a))

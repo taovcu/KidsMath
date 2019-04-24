@@ -1,6 +1,8 @@
 import sys
 sys.path.append('../')
 
+import Helpers.IO as io
+
 # Import Packages
 import Grade_K.KCC1_3._00_NumberNames as KCC0
 import Grade_K.KCC1_3._01_CountTo100By10s as KCC1
@@ -13,31 +15,31 @@ def TestCases(g):
     if g == 'k':
             return TestCasesK()
     elif g == '1':
-            print("Grade {} Test Cases have not been created yet".format(g))
+            io.printTTS("Grade {} Test Cases have not been created yet".format(g))
             return
     elif g == '2':
-        print("Grade {} Test Cases have not been created yet".format(g))
+        io.printTTS("Grade {} Test Cases have not been created yet".format(g))
         return;
     elif g == '3':
-        print("Grade {} Test Cases have not been created yet".format(g))
+        io.printTTS("Grade {} Test Cases have not been created yet".format(g))
         return
     elif g == '4':
-        print("Grade {} Test Cases have not been created yet".format(g))
+        io.printTTS("Grade {} Test Cases have not been created yet".format(g))
         return
     elif g == '5':
-        print("Grade {} Test Cases have not been created yet".format(g))
+        io.printTTS("Grade {} Test Cases have not been created yet".format(g))
         return
     elif g == '6':
-        print("Grade {} Test Cases have not been created yet".format(g))
+        io.printTTS("Grade {} Test Cases have not been created yet".format(g))
         return
     elif g == '7':
-        print("Grade {} Test Cases have not been created yet".format(g))
+        io.printTTS("Grade {} Test Cases have not been created yet".format(g))
         return
     elif g == '8':
-        print("Grade {} Test Cases have not been created yet".format(g))
+        io.printTTS("Grade {} Test Cases have not been created yet".format(g))
         return
     else:
-        print("Invalid Grade {}".format(g))
+        io.printTTS("Invalid Grade {}".format(g))
         return
 
 class TestCasesK:

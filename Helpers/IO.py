@@ -2,6 +2,18 @@ import sys
 import Helpers.text2speech as TTS
 import platform
 
+def readLine():
+    line = TTS.stt()
+    print(line)
+    if not line['error']:
+        t = line['text']
+    else:
+        printTTS("STT error. Please try input the number from the key board:")
+        t = sys.stdin.readline()[:-1]
+    while not t:
+        readLine()
+    return t
+
 def readChar():
     try:
         line = sys.stdin.readline()

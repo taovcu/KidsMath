@@ -1,11 +1,13 @@
-# Count to 20 by ones
+import sys
+sys.path.append('../../')
+
+import Helpers.IO as io
 import time
 import random
-import sys
 import emoji
 
 def countNumby10s(m, t):
-    print("Count with me from 10 to {} by 10s".format(m))
+    io.printTTS("Count with me from 10 to {} by 10s".format(m))
     
     # if t == 1, randomly skip a number 
     if t:
@@ -15,23 +17,26 @@ def countNumby10s(m, t):
     for i in range(10, m+1, 10):
         if i == t:
             continue
-        print(i)
+        io.printTTS(str(i))
         # wait for 1 second
         time.sleep(1)
 
-    print('Is there any number missing in this sequence?')
-    ans = sys.stdin.readline()[0]
-    while ans not in ['n', 'N', 'y', 'Y']:
-        print("You can only input 'n' or 'y'")
-        ans = sys.stdin.readline()[0]
-    if (ans in ['y', 'Y'] and t):
-        print(emoji.emojize(':thumbs_up: ')*3, "You got it. {} is missing".format(t))
-    elif (ans in ['n', 'N'] and not t):
-        print(emoji.emojize(':thumbs_up: ')*3, "You got it. All numbers are there")
-    else:
-        if ans in ['y', 'Y']: 
-            print(emoji.emojize(':thumbs_down: ')*3, "Wrong. You say there is some number missing, but actually all numbers are in the sequence")
-        if ans in ['n', 'N']: 
-            print(emoji.emojize(':thumbs_down: ')*3, "Wrong. You say there is no number missing, but actually {} is NOT in the sequence".format(t))
+    io.printTTS('Is there any number missing in this sequence? Say yes or no')
+    ans = io.readLine()
+    if ans not in ['yes', 'no']:
+        io.printTTS('Is there any number missing in this sequence? Please input from keyboard: y for yes, n for no')
+        ans = io.readChar()
+   
+    while ans not in ['yes', 'no', 'y', 'n']:
+        io.printTTS('Please input from keyboard: y for yes, n for no')
+        ans = io.readChar()
 
-    input("Press Enter to continue...")
+    if (ans in ['yes', 'y'] and t):
+        io.printTTS(emoji.emojize(':thumbs_up: ')*3, "You got it. {} is missing".format(t))
+    elif (ans in ['no', 'n'] and not t):
+        io.printTTS(emoji.emojize(':thumbs_up: ')*3, "You got it. All numbers are there")
+    else:
+        if ans in ['yes', 'y']: 
+            io.printTTS(emoji.emojize(':thumbs_down: ')*3, "Wrong. You say there is some number missing, but actually all numbers are in the sequence")
+        if ans in ['no', 'n']: 
+            io.printTTS(emoji.emojize(':thumbs_down: ')*3, "Wrong. You say there is no number missing, but actually {} is NOT in the sequence".format(t))

@@ -8,6 +8,7 @@ import pyttsx3
 from os import system
 import speech_recognition as sr
 import platform
+import sys
 
 # text to speech
 if platform.system() == 'Linux':
@@ -51,4 +52,7 @@ def stt():
         # speech was unintelligible
         response["error"] = "Unable to recognize speech"
 
+    if response["text"] == 'quit system':
+        print("Bye! The test is terminated!")
+        sys.exit()
     return response

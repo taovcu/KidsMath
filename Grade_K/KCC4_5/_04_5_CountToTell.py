@@ -10,6 +10,7 @@ import Helpers.IO as io
 
 
 def countObjects(m, n):
+    io.printTTS("Count objects")
     pitem.emojiPrint(m, n)
     io.printTTS("How many {} do you see?".format(m))
 
@@ -24,6 +25,7 @@ def countObjects(m, n):
 # n is the number of items: int
 # s is the shape in which items are arranged: str
 def countInShapes(m, n, s):
+    io.printTTS("Count objects in {}".format(s))
     pitem.emojiPrint(m, n)
     io.printTTS("How many {} do you see?".format(m))
 

@@ -32,7 +32,7 @@ def chooseGrade():
         if grade in gradeList:
             return grade
         else:
-            print("Only Grade {} is currently supported".format(gradeList))
+            io.printTTS("Only Grade {} is currently supported".format(gradeList))
             continue
 
 def main():
@@ -42,7 +42,7 @@ def main():
     grade = chooseGrade()
     k = TestCases(grade)
     while not k:
-        print("Selected Grade {} has not been implemented yet".format(k))
+        io.printTTS("Selected Grade {} has not been implemented yet".format(k))
         grade = chooseGrade()
         k = TestCases(grade)
 
@@ -50,7 +50,7 @@ def main():
                       if callable(getattr(k, method_name))]
     RM.RemoveSysMethods(object_methods)
 
-    print("Please specify how many tests you want try:")
+    io.printTTS("Please specify how many tests you want try:")
     testcnt = io.readInt()
 
     RandomMethodList = []
