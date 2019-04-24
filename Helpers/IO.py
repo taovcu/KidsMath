@@ -29,7 +29,6 @@ def readInt():
 
 def printTTS(t):
     print(t)
-
     #Todo: 'Windows'/'Darwin' TTS
-    if platform.system() == 'Linux':
+    if platform.system() in ['Linux', 'Darwin']:
         TTS.tts(t)

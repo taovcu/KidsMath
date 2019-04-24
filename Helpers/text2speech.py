@@ -5,12 +5,15 @@
 
 
 import pyttsx3
+from os import system
 import speech_recognition as sr
+import platform
 
 # text to speech
-engine = pyttsx3.init('espeak')
-engine.setProperty('rate', 150)
-engine.setProperty('voice', 'english-us')
+if platform.system() == 'Linux':
+    engine = pyttsx3.init('espeak')
+    engine.setProperty('rate', 150)
+    engine.setProperty('voice', 'english-us')
 
 # speech to text
 r = sr.Recognizer()
@@ -18,8 +21,12 @@ mic = sr.Microphone()
 
 
 def tts(t):
-    engine.say(t)
-    engine.runAndWait()
+    #Todo: 'Windows'/'Darwin' TTS
+    if platform.system() == 'Linux':
+        engine.say(t)
+        engine.runAndWait()
+    if platform.system() == 'Darwin':
+        system('say ' + t)
 
 def stt():
     # set up the response object
