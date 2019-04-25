@@ -53,6 +53,12 @@ def printHeart():
 def emojiPrint(m, n):
     print(emoji.emojize(':{}: '.format(m) * n))
 
+
+def emojiPrintList(m):
+    for i in m:
+        print(emoji.emojize(':{}: '.format(i)), end='')
+
+
 def emojiPrintWidth(m, n, w):
     for i in range(w):
         if i < n/2 or i >= (w-n/2) :

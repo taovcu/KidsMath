@@ -40,8 +40,6 @@ def chooseGrade():
 def main():
     print(">>>> Joy Coding Main Function")
 
-    settings.init()
-
     grade = chooseGrade()
     k = TestCases(grade)
     while not k:

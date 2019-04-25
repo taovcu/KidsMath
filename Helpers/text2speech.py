@@ -6,12 +6,14 @@
 
 import pyttsx3
 from os import system
+
+import settings
 import speech_recognition as sr
 import platform
 import sys
+sys.path.append('../')
 from googletrans import Translator
 
-TIMEOUT = 5
 
 # text to speech
 if platform.system() == 'Linux':
@@ -44,7 +46,7 @@ def stt():
     with mic as source:
         r.adjust_for_ambient_noise(source)
         try:
-            audio = r.listen(source, timeout = TIMEOUT)
+            audio = r.listen(source, timeout = settings.sttTimeout)
         except sr.WaitTimeoutError:
             return response
 

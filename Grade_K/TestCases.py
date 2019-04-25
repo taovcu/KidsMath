@@ -10,6 +10,9 @@ import Grade_K.KCC1_3._02_CountfromX as KCC2
 import Grade_K.KCC1_3._03_CountTo20 as KCC3
 import Grade_K.KCC4_5._04_5_CountToTell as KCC4
 import Grade_K.KCC6_7._06_7_CompareNum as KCC6
+import Grade_K.KOA1_5._01_5_AlgebraicThink as KOA1
+import Grade_K.KNBT1._01_OperationBaseTen as KNBT1
+import Grade_K.KMD1_3._01_2_DescribeCompare as KMD1
 import Grade_K.BONUS.bonus as Bonus
 
 def TestCases(g):
@@ -96,6 +99,37 @@ class TestCasesK:
         KCC6.compareNum(7, 9)
         KCC6.compareNum(11, 13)
         KCC6.compareNum(15, 15)
+
+    def addObjectCases(self):
+        KOA1.AddObjects('pear', 3, 4)
+
+    def subObjectcases(self):
+        KOA1.SubObjects('pear', 13, 4)
+
+    def decomposeNumCases(self):
+        KOA1.DecomposeNum('pear', 13, 4)
+
+    def addupNumCases(self):
+        KOA1.AddupNum('pear', 13, 4)
+
+    def composeObjBaseTenCases(self):
+        KNBT1.composeObjBaseTen('pear', 5)
+
+    def composeBumBaseTenCases(self):
+        KNBT1.composeNumBaseTen(5)
+
+    def decomposeObjBaseTenCases(self):
+        KNBT1.decomposeObjBaseTen('pear', 15)
+
+    def decomposeObjBaseTenCases(self):
+        KNBT1.decomposeNumBaseTen(15)
+
+    def compareWeigthCases(self):
+        KMD1.CompareWeight(20, 40)
+
+    def classifyCountCases(self):
+        KMD1.ClassifyCount('pear', 5, 'grapes', 3, 'orange', 7)
+
 
     def AddTestCases(self):
         Bonus.addTest(1, 2)
