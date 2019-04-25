@@ -4,7 +4,7 @@ import platform
 import inflect
 
 def readLine():
-    printTTS("Say your answer:")
+    printTTS("Voice input:")
     line = TTS.stt()
     print(line)
     if line and not line['error']:
@@ -31,18 +31,17 @@ def readChar():
 
 def readInt():
     #line = sys.stdin.readline()[:-1]
-    printTTS("Say your answer:")
+    printTTS("Voice input:")
     line = TTS.stt()
     print(line)
-    if not line['error']:
+    if line and not line['error']:
         t = line['text']
     else:
-        printTTS("Input the number from the key board:")
+        printTTS("Input from the key board:")
         t = sys.stdin.readline()[:-1]
-
-    while not t.isdigit() or t == "":
-        printTTS("Input the number from the key board:")
-        t = sys.stdin.readline()[:-1]
+        while not t.isdigit() or t == "":
+            printTTS("Input from the key board:")
+            t = sys.stdin.readline()[:-1]
     return int(t)
 
 def printTTS(t):
