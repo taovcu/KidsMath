@@ -38,7 +38,10 @@ def stt():
 
     with mic as source:
         r.adjust_for_ambient_noise(source)
-        audio = r.listen(source)
+        try:
+            audio = r.listen(source, timeout = 6)
+        except sr.WaitTimeoutError:
+            return response
 
     # try recognizing the speech in the recording
     # if a RequestError or UnknownValueError exception is caught,

@@ -10,8 +10,7 @@ import Helpers.IO as io
 
 def compareObjects(m, n1, n2):
     io.printTTS("Compare number of objects")
-    pitem.emojiPrint(m, n1)
-    pitem.emojiPrint(m, n2)
+    print(emoji.emojize(':{}: '.format(m) * n1 + ' | ' + ':{}: '.format(m) * n2))
     io.printTTS("Which side has more {}, left or right or same?".format(m))
 
     ans = io.readLine()
@@ -22,7 +21,7 @@ def compareObjects(m, n1, n2):
 
 def compareNum(n1, n2):
     io.printTTS("Compare numbers")
-    io.printTTS(n1 + ' | ' + n2)
+    io.printTTS("{} || {} ".format(n1, n2))
     io.printTTS("Which side has greater number, left or right or same?")
     ans = io.readLine()
     if (ans == 'same' and n1 == n2) or (ans == 'left' and n1 > n2) or (ans == 'right' and n1 < n2):

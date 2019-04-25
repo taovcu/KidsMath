@@ -1,17 +1,23 @@
 import sys
 import Helpers.text2speech as TTS
 import platform
+import inflect
 
 def readLine():
+    printTTS("Say your answer:")
     line = TTS.stt()
     print(line)
-    if not line['error']:
+    if line and not line['error']:
         t = line['text']
+        if t and t.isdigit():
+            s = inflect.engine().number_to_words(int(t))
+            t = s
     else:
-        printTTS("STT error. Please try input the number from the key board:")
+        printTTS("Cannot recognize what you said. Input from the key board:")
         t = sys.stdin.readline()[:-1]
-    while not t:
-        readLine()
+        while not t:
+            printTTS("Input from the key board:")
+            t = sys.stdin.readline()[:-1]
     return t
 
 def readChar():
@@ -25,17 +31,17 @@ def readChar():
 
 def readInt():
     #line = sys.stdin.readline()[:-1]
-    printTTS("Please try input the number with you voice:")
+    printTTS("Say your answer:")
     line = TTS.stt()
     print(line)
     if not line['error']:
         t = line['text']
     else:
-        printTTS("Please try input the number from the key board:")
+        printTTS("Input the number from the key board:")
         t = sys.stdin.readline()[:-1]
 
     while not t.isdigit() or t == "":
-        printTTS("Please try input the number from the key board:")
+        printTTS("Input the number from the key board:")
         t = sys.stdin.readline()[:-1]
     return int(t)
 

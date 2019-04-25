@@ -32,11 +32,11 @@ def countNumby10s(m, t):
         ans = io.readChar()
 
     if (ans in ['yes', 'y'] and t):
-        io.printTTS(emoji.emojize(':thumbs_up: ')*3, "You got it. {} is missing".format(t))
+        io.printTTS(emoji.emojize(':thumbs_up: ')*3 + "You got it. {} is missing".format(t))
     elif (ans in ['no', 'n'] and not t):
-        io.printTTS(emoji.emojize(':thumbs_up: ')*3, "You got it. All numbers are there")
+        io.printTTS(emoji.emojize(':thumbs_up: ')*3 + "You got it. All numbers are there")
     else:
         if ans in ['yes', 'y']: 
-            io.printTTS(emoji.emojize(':thumbs_down: ')*3, "Wrong. You say there is some number missing, but actually all numbers are in the sequence")
+            io.printTTS(emoji.emojize(':thumbs_down: ')*3 + "Wrong. You say there is some number missing, but actually all numbers are in the sequence")
         if ans in ['no', 'n']: 
-            io.printTTS(emoji.emojize(':thumbs_down: ')*3, "Wrong. You say there is no number missing, but actually {} is NOT in the sequence".format(t))
+            io.printTTS(emoji.emojize(':thumbs_down: ')*3 + "Wrong. You say there is no number missing, but actually {} is NOT in the sequence".format(t))
