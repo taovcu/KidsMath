@@ -7,7 +7,7 @@ import random
 import emoji
 
 def countNumby10s(m, t):
-    io.printTTS("Count with me from 10 to {} by 10s".format(m))
+    io.printTTS("Count from 10 up to {} by 10 s".format(m))
     
     # if t == 1, randomly skip a number 
     if t:

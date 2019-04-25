@@ -2,6 +2,7 @@ import sys
 import Helpers.text2speech as TTS
 import platform
 import inflect
+import emoji
 
 def readLine():
     printTTS("Voice input:")
@@ -15,9 +16,9 @@ def readLine():
     else:
         printTTS("Cannot recognize what you said. Input from the key board:")
         t = sys.stdin.readline()[:-1]
-        while not t:
-            printTTS("Input from the key board:")
-            t = sys.stdin.readline()[:-1]
+    while not t:
+        printTTS("Input from the key board:")
+        t = sys.stdin.readline()[:-1]
     return t
 
 def readChar():
@@ -39,14 +40,13 @@ def readInt():
     else:
         printTTS("Input from the key board:")
         t = sys.stdin.readline()[:-1]
-        while not t.isdigit() or t == "":
-            printTTS("Input from the key board:")
-            t = sys.stdin.readline()[:-1]
+    while not t or not t.isdigit():
+        printTTS("Input from the key board:")
+        t = sys.stdin.readline()[:-1]
     return int(t)
 
 def printTTS(t):
-    print(t)
+    print(t, TTS.en2cn(t))
     #Todo: 'Windows'/'Darwin' TTS
     if platform.system() in ['Linux', 'Darwin']:
-        print(TTS.en2cn(t))
         TTS.tts(t)

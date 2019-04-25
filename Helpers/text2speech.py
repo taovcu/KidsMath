@@ -11,6 +11,8 @@ import platform
 import sys
 from googletrans import Translator
 
+TIMEOUT = 5
+
 # text to speech
 if platform.system() == 'Linux':
     engine = pyttsx3.init('espeak')
@@ -42,7 +44,7 @@ def stt():
     with mic as source:
         r.adjust_for_ambient_noise(source)
         try:
-            audio = r.listen(source, timeout = 6)
+            audio = r.listen(source, timeout = TIMEOUT)
         except sr.WaitTimeoutError:
             return response
 
@@ -64,4 +66,8 @@ def stt():
     return response
 
 def en2cn(t):
-    return translator.translate(t, src='en', dest='zh-cn').text
+    try:
+        t = translator.translate(t, src='en', dest='zh-cn').text
+    except:
+        t = ''
+    return t
