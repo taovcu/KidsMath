@@ -1,4 +1,3 @@
-# Count to 20 by ones
 import time
 import sys
 import math

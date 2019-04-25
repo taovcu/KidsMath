@@ -23,6 +23,7 @@ import Grade_K.KCC1_3._02_CountfromX as KCC2
 import Grade_K.KCC1_3._03_CountTo20 as KCC3
 import Grade_K.KCC4_5._04_5_CountToTell as KCC4
 import Grade_K.KCC6_7._06_7_CompareNum as KCC6
+import Grade_K.KOA1_5._01_5_AlgebraicThink as KOA1
 import Grade_K.BONUS.bonus as Bonus
 
 '''
@@ -45,10 +46,8 @@ KCC4.countObjects('tomato', 13)
 KCC6.compareObjects('tomato', 7, 9)
 KCC6.compareObjects('grapes', 11, 13)
 
-'''
 KCC6.compareNum(7, 9)
 KCC6.compareNum(11, 13)
-'''
 Bonus.addTest(4, 2)
 Bonus.addTest(5, 7)
 
@@ -61,3 +60,8 @@ Bonus.compareItems(9,7,'baby')
 Bonus.guessValue(23)
 Bonus.guessValue(41)
 '''
+
+KOA1.AddObjects('pear', 3, 4)
+KOA1.SubObjects('pear', 13, 4)
+KOA1.DecomposeNum('pear', 13, 4)
+KOA1.AddupNum('pear', 13, 4)
