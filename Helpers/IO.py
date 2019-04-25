@@ -48,4 +48,5 @@ def printTTS(t):
     print(t)
     #Todo: 'Windows'/'Darwin' TTS
     if platform.system() in ['Linux', 'Darwin']:
+        print(TTS.en2cn(t))
         TTS.tts(t)

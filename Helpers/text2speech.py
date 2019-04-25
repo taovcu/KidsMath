@@ -9,6 +9,7 @@ from os import system
 import speech_recognition as sr
 import platform
 import sys
+from googletrans import Translator
 
 # text to speech
 if platform.system() == 'Linux':
@@ -20,6 +21,8 @@ if platform.system() == 'Linux':
 r = sr.Recognizer()
 mic = sr.Microphone()
 
+# English to Simplified Chinese
+translator = Translator()
 
 def tts(t):
     #Todo: 'Windows'/'Darwin' TTS
@@ -59,3 +62,6 @@ def stt():
         print("Bye! The test is terminated!")
         sys.exit()
     return response
+
+def en2cn(t):
+    return translator.translate(t, src='en', dest='zh-cn').text
