@@ -24,6 +24,8 @@ import Grade_K.KCC1_3._03_CountTo20 as KCC3
 import Grade_K.KCC4_5._04_5_CountToTell as KCC4
 import Grade_K.KCC6_7._06_7_CompareNum as KCC6
 import Grade_K.KOA1_5._01_5_AlgebraicThink as KOA1
+import Grade_K.KNBT1._01_OperationBaseTen as KNBT1
+
 import Grade_K.BONUS.bonus as Bonus
 
 '''
@@ -59,9 +61,14 @@ Bonus.compareItems(9,7,'baby')
 
 Bonus.guessValue(23)
 Bonus.guessValue(41)
-'''
 
 KOA1.AddObjects('pear', 3, 4)
 KOA1.SubObjects('pear', 13, 4)
 KOA1.DecomposeNum('pear', 13, 4)
 KOA1.AddupNum('pear', 13, 4)
+'''
+
+KNBT1.composeObjBaseTen('pear', 5)
+KNBT1.composeNumBaseTen(5)
+KNBT1.decomposeObjBaseTen('pear', 15)
+KNBT1.decomposeNumBaseTen(15)

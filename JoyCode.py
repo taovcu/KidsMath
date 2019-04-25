@@ -6,6 +6,8 @@
 import sys
 sys.path.append('.')
 
+import settings
+
 import Helpers.IO as io
 import time
 import random
@@ -38,6 +40,7 @@ def chooseGrade():
 def main():
     print(">>>> Joy Coding Main Function")
 
+    settings.init()
 
     grade = chooseGrade()
     k = TestCases(grade)
