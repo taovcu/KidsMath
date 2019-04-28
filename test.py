@@ -1,7 +1,6 @@
 import sys
 sys.path.append('.')
 
-
 import Helpers.IO as io
 import time
 import random
@@ -12,8 +11,7 @@ import emoji
 import pyttsx3
 
 # Import Packages
-from Grade_K.TestCases import TestCases
-import Helpers.RemoveSysMethods as RM
+#from Grade_K.TestCases import TestCases
 import Helpers.text2speech as TTS
 
 # Import Packages
@@ -29,7 +27,81 @@ import Grade_K.KMD1_3._01_2_DescribeCompare as KMD1
 
 import Grade_K.BONUS.bonus as Bonus
 
+
+class Test:
+    flag = 0
+    def execute(self, func, *args):
+        if self.flag:
+            return
+
+        if func == 'Number2Name':
+            KCC0.Number2Name(args[0])
+        if func == 'Name2Number':
+            KCC0.Number2Name(args[0])
+        if func == 'countNumby10s':
+            KCC1.countNumby10s(args[0], args[1])
+        if func == 'countNumfromX':
+            KCC2.countNumfromX(args[0], args[1])
+
+        if func == 'writeNum':
+            KCC3.writeNum(args[0], args[1])
+            
+        if func == 'countObjects':
+            KCC4.countObjects(args[0], args[1])
+        if func == 'compareObjects':
+            KCC6.compareObjects(args[0], args[1], args[2])
+            
+        if func == 'compareNum':
+            KCC6.compareNum(args[0], args[1])
+        if func == 'addTest':
+            Bonus.addTest(args[0], args[1])
+            
+        if func == 'subtractTest':
+            Bonus.subtractTest(args[0], args[1])
+            
+        if func == 'compareItems':
+            Bonus.compareItems(args[0], args[1], args[2])
+            
+        if func == 'guessValue':
+            Bonus.guessValue(args[0])
+            
+        if func == 'AddObjects':
+            KOA1.AddObjects(args[0], args[1], args[2])
+        if func == 'SubObjects':
+            KOA1.SubObjects(args[0], args[1], args[2])
+        if func == 'DecomposeNum':
+            KOA1.DecomposeNum(args[0], args[1], args[2])
+        if func == 'AddupNum':
+            KOA1.AddupNum(args[0], args[1], args[2])
+            
+        if func == 'composeObjBaseTen':
+            KNBT1.composeObjBaseTen(args[0], args[1])
+        if func == 'composeNumBaseTen':
+            KNBT1.composeNumBaseTen(args[0])
+        if func == 'decomposeObjBaseTen':
+            KNBT1.decomposeObjBaseTen(args[0], args[1])
+        if func == 'decomposeNumBaseTen':
+            KNBT1.decomposeNumBaseTen(args[0])
+            
+        if func == 'CompareWeight':
+            KMD1.CompareWeight(args[0], args[1])
+        if func == 'ClassifyCount':
+            KMD1.ClassifyCount(args[0], args[1], args[2], args[3], args[4])
+
+        io.printTTS("Press 'k' to skip current test case; 'q' to quit all tests; any other key to continue")
+        i = input()
+        if i == 'k':
+            self.flag = 1
+            return
+        elif i == 'q':
+            sys.exit()
+
 '''
+t = Test()
+t.execute('countNumby10s', 100, 1)
+t.execute('countNumby10s', 100, 0)
+del t
+
 KCC0.Number2Name(3)
 KCC0.Number2Name(7)
 
@@ -74,5 +146,5 @@ KNBT1.decomposeObjBaseTen('pear', 15)
 KNBT1.decomposeNumBaseTen(15)
 
 KMD1.CompareWeight(20, 40)
-'''
 KMD1.ClassifyCount('pear', 5, 'grapes', 3, 'orange', 7)
+'''

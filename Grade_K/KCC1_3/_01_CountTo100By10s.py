@@ -4,15 +4,16 @@ sys.path.append('../../')
 import Helpers.IO as io
 import time
 import random
+import string
 import emoji
+
 
 def countNumby10s(m, t):
     io.printTTS("Count from 10 up to {} by 10 s".format(m))
     
     # if t == 1, randomly skip a number 
     if t:
-        random.seed(t)
-        t = random.randint(1, m/10) * 10
+        t = (int)(random.SystemRandom().choice(string.digits)) * 10
         
     for i in range(10, m+1, 10):
         if i == t:

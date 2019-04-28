@@ -2,6 +2,8 @@ import sys
 sys.path.append('../')
 
 import Helpers.IO as io
+import Helpers.Control as CTR
+import test
 
 # Import Packages
 import Grade_K.KCC1_3._00_NumberNames as KCC0
@@ -10,9 +12,6 @@ import Grade_K.KCC1_3._02_CountfromX as KCC2
 import Grade_K.KCC1_3._03_CountTo20 as KCC3
 import Grade_K.KCC4_5._04_5_CountToTell as KCC4
 import Grade_K.KCC6_7._06_7_CompareNum as KCC6
-import Grade_K.KOA1_5._01_5_AlgebraicThink as KOA1
-import Grade_K.KNBT1._01_OperationBaseTen as KNBT1
-import Grade_K.KMD1_3._01_2_DescribeCompare as KMD1
 import Grade_K.BONUS.bonus as Bonus
 
 def TestCases(g):
@@ -46,6 +45,7 @@ def TestCases(g):
         io.printTTS("Invalid Grade {}".format(g))
         return
 
+
 class TestCasesK:
     testcnt = 0
     # n is user specified number of test elif g ==s
@@ -53,127 +53,108 @@ class TestCasesK:
         return
 
     def Number2NameCases(self):
-        KCC0.Number2Name(3)
-        KCC0.Number2Name(7)
-        KCC0.Number2Name(15)
-        KCC0.Number2Name(22)
-        KCC0.Number2Name(33)
-
+        t = test.Test()
+        t.execute('Number2Name', 7)
+        t.execute('Number2Name', 15)
+        t.execute('Number2Name', 22)
+        t.execute('Number2Name', 33)
+        del t
 
     def Name2NumberCases(self):
-        KCC0.Name2Number('three')
-        KCC0.Name2Number('seven')
-        KCC0.Name2Number('fifteen')
-        KCC0.Name2Number('twenty-two')
+        t = test.Test()
+        t.execute('Name2Number','three')
+        t.execute('Name2Number','seven')
+        t.execute('Name2Number','fifteen')
+        t.execute('Name2Number','twenty-two')
+        del t
 
     def countNumby10sCases(self):
-        KCC1.countNumby10s(100, 1)
-        KCC1.countNumby10s(100, 0)
+        t = test.Test()
+        t.execute('countNumby10s', 100, 1)
+        t.execute('countNumby10s', 100, 0)
+        del t
 
     def countNumfromXCases(self):
-        KCC2.countNumfromX(3,19)
-        KCC2.countNumfromX(33,51)
-        KCC2.countNumfromX(73,85)
+        t = test.Test()
+        t.execute('countNumfromX', 3,19)
+        t.execute('countNumfromX', 33,51)
+        t.execute('countNumfromX', 73,85)
+        del t
 
     def writeNumCases(self):
-        KCC3.writeNum(0, 20)
+        t = test.Test()
+        t.execute('writeNum', 7, 10)
+        del t
 
     def countObjectCases(self):
-        KCC4.countObjects('pear', 3)
-        KCC4.countObjects('apple', 5)
-        KCC4.countObjects('gift', 8)
-        KCC4.countObjects('tomato', 13)
-        KCC4.countObjects('watermelon', 11)
-        KCC4.countObjects('corn', 7)
-        KCC4.countObjects('banana', 17)
-        KCC4.countObjects('grapes', 9)
+        t = test.Test()
+        t.execute('countObjects', 'pear', 3)
+        t.execute('countObjects', 'palm_tree', 5)
+        t.execute('countObjects', 'tulip', 8)
+        t.execute('countObjects', 'tomato', 13)
+        t.execute('countObjects', 'watermelon', 11)
+        t.execute('countObjects', 'sunflower', 7)
+        t.execute('countObjects', 'banana', 17)
+        t.execute('countObjects', 'grapes', 9)
+        del t
 
     def compareObjectCases(self):
-        KCC6.compareObjects('pear', 3, 4)
-        KCC6.compareObjects('tomato', 7, 9)
-        KCC6.compareObjects('grapes', 11, 13)
-        KCC6.compareObjects('watermelon', 15, 15)
+        t = test.Test()
+        t.execute('compareObjects', 'pear', 3, 4)
+        t.execute('compareObjects', 'tomato', 7, 9)
+        t.execute('compareObjects', 'watermelon', 15, 15)
+        del t
 
     def compareNumCases(self):
-        KCC6.compareNum(3, 4)
-        KCC6.compareNum(7, 9)
-        KCC6.compareNum(11, 13)
-        KCC6.compareNum(15, 15)
-
-    def addObjectCases(self):
-        KOA1.AddObjects('pear', 3, 4)
-
-    def subObjectcases(self):
-        KOA1.SubObjects('pear', 13, 4)
-
-    def decomposeNumCases(self):
-        KOA1.DecomposeNum('pear', 13, 4)
-
-    def addupNumCases(self):
-        KOA1.AddupNum('pear', 13, 4)
-
-    def composeObjBaseTenCases(self):
-        KNBT1.composeObjBaseTen('pear', 5)
-
-    def composeBumBaseTenCases(self):
-        KNBT1.composeNumBaseTen(5)
-
-    def decomposeObjBaseTenCases(self):
-        KNBT1.decomposeObjBaseTen('pear', 15)
-
-    def decomposeObjBaseTenCases(self):
-        KNBT1.decomposeNumBaseTen(15)
-
-    def compareWeigthCases(self):
-        KMD1.CompareWeight(20, 40)
-
-    def classifyCountCases(self):
-        KMD1.ClassifyCount('pear', 5, 'grapes', 3, 'orange', 7)
-
+        t = test.Test()
+        t.execute('compareNum', 3, 4)
+        t.execute('compareNum', 7, 9)
+        t.execute('compareNum', 11, 13)
+        t.execute('compareNum', 15, 15)
+        del t
 
     def AddTestCases(self):
-        Bonus.addTest(1, 2)
-        Bonus.addTest(2, 2)
-        Bonus.addTest(2, 7)
-        Bonus.addTest(2, 5)
-        Bonus.addTest(3, 6)
-        Bonus.addTest(4, 2)
-        Bonus.addTest(5, 7)
-        Bonus.addTest(6, 3)
-        Bonus.addTest(7, 3)
-        Bonus.addTest(8, 2)
-        Bonus.addTest(8, 7)
-        Bonus.addTest(9, 9)
-        Bonus.addTest(9, 11)
+        t = test.Test()
+        t.execute('addTest', 1, 2)
+        t.execute('addTest', 2, 2)
+        t.execute('addTest', 2, 7)
+        t.execute('addTest', 3, 6)
+        t.execute('addTest', 4, 2)
+        t.execute('addTest', 5, 7)
+        t.execute('addTest', 6, 3)
+        t.execute('addTest', 7, 3)
+        t.execute('addTest', 8, 2)
+        t.execute('addTest', 8, 7)
+        t.execute('addTest', 9, 9)
+        t.execute('addTest', 9, 11)
+        del t
 
     
     def subtractTestCases(self):
-        Bonus.subtractTest(2, 2)
-        Bonus.subtractTest(7, 2)
-        Bonus.subtractTest(5, 2)
-        Bonus.subtractTest(6, 3)
-        Bonus.subtractTest(4, 2)
-        Bonus.subtractTest(7, 5)
-        Bonus.subtractTest(6, 3)
-        Bonus.subtractTest(7, 3)
-        Bonus.subtractTest(8, 2)
-        Bonus.subtractTest(8, 7)
-        Bonus.subtractTest(9, 9)
-        Bonus.subtractTest(15, 11)
-        Bonus.subtractTest(19, 3)
+        t.execute('subtractTest', 2, 2)
+        t.execute('subtractTest', 7, 2)
+        t.execute('subtractTest', 6, 3)
+        t.execute('subtractTest', 7, 3)
+        t.execute('subtractTest', 8, 2)
+        t.execute('subtractTest', 9, 9)
+        t.execute('subtractTest', 15, 11)
+        t.execute('subtractTest', 19, 3)
+        del t
 
     
     def compareTestCases(self):
-        Bonus.compareItems(4,6,'cookie')
-        Bonus.compareItems(7,8,'princess')
-        Bonus.compareItems(9,7,'baby')
-        Bonus.compareItems(10,10,'turtle')
-        Bonus.compareItems(13,12,'crocodile')
+        t.execute('compareItems', 4,6,'cookie')
+        t.execute('compareItems', 7,8,'princess')
+        t.execute('compareItems', 9,7,'baby')
+        t.execute('compareItems', 10,10,'turtle')
+        t.execute('compareItems', 13,12,'crocodile')
+        del t
 
 
     def guessTestCases(self):
-        Bonus.guessValue(9)
-        Bonus.guessValue(23)
-        Bonus.guessValue(41)
-        Bonus.guessValue(50)
+        t.execute('guessValue', 9)
+        t.execute('guessValue', 23)
+        t.execute('guessValue', 41)
+        t.execute('guessValue', 50)
+        del t
 

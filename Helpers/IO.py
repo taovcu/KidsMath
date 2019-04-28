@@ -3,19 +3,22 @@ import Helpers.text2speech as TTS
 import platform
 import inflect
 import emoji
+import settings
 
 def readLine():
-    printTTS("Voice input:")
-    line = TTS.stt()
-    print(line)
-    if line and not line['error']:
-        t = line['text']
-        if t and t.isdigit():
-            s = inflect.engine().number_to_words(int(t))
-            t = s
+    if settings.sttEnable:
+        printTTS("Voice input:")
+        line = TTS.stt()
+        print(line)
+        if line and not line['error']:
+            t = line['text']
+            if t and t.isdigit():
+                s = inflect.engine().number_to_words(int(t))
+                t = s
     else:
-        printTTS("Cannot recognize what you said. Input from the key board:")
+        printTTS("Input from the key board:")
         t = sys.stdin.readline()[:-1]
+
     while not t:
         printTTS("Input from the key board:")
         t = sys.stdin.readline()[:-1]
@@ -31,12 +34,12 @@ def readChar():
     return line[0]
 
 def readInt():
-    #line = sys.stdin.readline()[:-1]
-    printTTS("Voice input:")
-    line = TTS.stt()
-    print(line)
-    if line and not line['error']:
-        t = line['text']
+    if settings.sttEnable:
+        printTTS("Voice input:")
+        line = TTS.stt()
+        print(line)
+        if line and not line['error']:
+            t = line['text']
     else:
         printTTS("Input from the key board:")
         t = sys.stdin.readline()[:-1]
@@ -46,7 +49,11 @@ def readInt():
     return int(t)
 
 def printTTS(t):
-    print(t, TTS.en2cn(t))
+    if settings.zh_cn:
+        print(t, TTS.en2cn(t))
+    else:
+        print(t)
     #Todo: 'Windows'/'Darwin' TTS
-    if platform.system() in ['Linux', 'Darwin']:
-        TTS.tts(t)
+    if settings.ttsEnable:
+        if platform.system() in ['Linux', 'Darwin']:
+            TTS.tts(t)

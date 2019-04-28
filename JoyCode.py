@@ -19,8 +19,9 @@ import pyttsx3
 
 # Import Packages
 from Grade_K.TestCases import TestCases
-import Helpers.RemoveSysMethods as RM
+import Helpers.Control as CTR
 import Helpers.text2speech as TTS
+import test
 
 def chooseGrade():
     gradeList = [str(i) for i in range(1,9)]
@@ -47,9 +48,9 @@ def main():
         grade = chooseGrade()
         k = TestCases(grade)
 
-    object_methods = [method_name for method_name in dir(k) 
+    object_methods = [method_name for method_name in dir(k)
                       if callable(getattr(k, method_name))]
-    RM.RemoveSysMethods(object_methods)
+    object_methods = CTR.RemoveSysMethods(object_methods)
 
     io.printTTS("Please specify how many tests you want try:")
     testcnt = io.readInt()
