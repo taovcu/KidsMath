@@ -52,6 +52,8 @@ def main():
                       if callable(getattr(k, method_name))]
     object_methods = CTR.RemoveSysMethods(object_methods)
 
+    io.printTTS("There are totally {} test cases implemented".format(len(object_methods)))
+
     io.printTTS("Please specify how many tests you want try:")
     testcnt = io.readInt()
 

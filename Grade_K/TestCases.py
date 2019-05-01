@@ -131,6 +131,7 @@ class TestCasesK:
 
     
     def subtractTestCases(self):
+        t = test.Test()
         t.execute('subtractTest', 2, 2)
         t.execute('subtractTest', 7, 2)
         t.execute('subtractTest', 6, 3)
@@ -143,6 +144,7 @@ class TestCasesK:
 
     
     def compareTestCases(self):
+        t = test.Test()
         t.execute('compareItems', 4,6,'cookie')
         t.execute('compareItems', 7,8,'princess')
         t.execute('compareItems', 9,7,'baby')
@@ -152,6 +154,7 @@ class TestCasesK:
 
 
     def guessTestCases(self):
+        t = test.Test()
         t.execute('guessValue', 9)
         t.execute('guessValue', 23)
         t.execute('guessValue', 41)

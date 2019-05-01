@@ -4,7 +4,7 @@ retryNum = 2
 
 # Enable Text to Speech
 global ttsEnable
-ttsEnable = 0
+ttsEnable = 1
 
 # Enable Speech to Text voice input
 global sttEnable
@@ -15,4 +15,4 @@ sttTimeout = 3
 
 # Enable English to Chinese Translation
 global zh_cn
-zh_cn = 0
+zh_cn = 1

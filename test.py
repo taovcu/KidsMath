@@ -37,7 +37,7 @@ class Test:
         if func == 'Number2Name':
             KCC0.Number2Name(args[0])
         if func == 'Name2Number':
-            KCC0.Number2Name(args[0])
+            KCC0.Name2Number(args[0])
         if func == 'countNumby10s':
             KCC1.countNumby10s(args[0], args[1])
         if func == 'countNumfromX':
@@ -88,7 +88,7 @@ class Test:
         if func == 'ClassifyCount':
             KMD1.ClassifyCount(args[0], args[1], args[2], args[3], args[4])
 
-        io.printTTS("Press 'k' to skip current test case; 'q' to quit all tests; any other key to continue")
+        io.printTTS("Press 'k' to skip current test case, 'q' to quit all tests, any other key to continue")
         i = input()
         if i == 'k':
             self.flag = 1
@@ -98,8 +98,7 @@ class Test:
 
 '''
 t = Test()
-t.execute('countNumby10s', 100, 1)
-t.execute('countNumby10s', 100, 0)
+t.execute('writeNum', 0, 20)
 del t
 
 KCC0.Number2Name(3)

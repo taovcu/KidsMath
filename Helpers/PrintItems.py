@@ -5,8 +5,6 @@ from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 
 import emoji
 import numpy as np
-import plotly.plotly as py
-import plotly.graph_objs as go
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np

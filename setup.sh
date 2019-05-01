@@ -11,4 +11,4 @@ sudo pip3 install emoji
 sudo pip3 install inflect
 sudo pip3 install word2number
 sudo pip3 install googletrans
-
+sudo pip3 install termcolor

@@ -4,6 +4,7 @@ import platform
 import inflect
 import emoji
 import settings
+from termcolor import colored
 
 def readLine():
     if settings.sttEnable:
@@ -50,9 +51,9 @@ def readInt():
 
 def printTTS(t):
     if settings.zh_cn:
-        print(t, TTS.en2cn(t))
+        print(colored(t, 'red') , TTS.en2cn(t))
     else:
-        print(t)
+        print(colored(t, 'red'))
     #Todo: 'Windows'/'Darwin' TTS
     if settings.ttsEnable:
         if platform.system() in ['Linux', 'Darwin']:
