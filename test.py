@@ -35,60 +35,60 @@ class Test:
             return
 
         if func == 'Number2Name':
-            KCC0.Number2Name(args[0])
+            KCC0.Number2Name(*args)
         if func == 'Name2Number':
-            KCC0.Name2Number(args[0])
+            KCC0.Name2Number(*args)
         if func == 'countNumby10s':
-            KCC1.countNumby10s(args[0], args[1])
+            KCC1.countNumby10s(*args)
         if func == 'countNumfromX':
-            KCC2.countNumfromX(args[0], args[1])
+            KCC2.countNumfromX(*args)
 
         if func == 'writeNum':
-            KCC3.writeNum(args[0], args[1])
+            KCC3.writeNum(*args)
             
         if func == 'countObjects':
-            KCC4.countObjects(args[0], args[1])
+            KCC4.countObjects(*args)
         if func == 'compareObjects':
-            KCC6.compareObjects(args[0], args[1], args[2])
+            KCC6.compareObjects(*args)
             
         if func == 'compareNum':
-            KCC6.compareNum(args[0], args[1])
+            KCC6.compareNum(*args)
         if func == 'addTest':
-            Bonus.addTest(args[0], args[1])
+            Bonus.addTest(*args)
             
         if func == 'subtractTest':
-            Bonus.subtractTest(args[0], args[1])
+            Bonus.subtractTest(*args)
             
         if func == 'compareItems':
-            Bonus.compareItems(args[0], args[1], args[2])
+            Bonus.compareItems(*args)
             
         if func == 'guessValue':
-            Bonus.guessValue(args[0])
+            Bonus.guessValue(*args)
             
         if func == 'AddObjects':
-            KOA1.AddObjects(args[0], args[1], args[2])
+            KOA1.AddObjects(*args)
         if func == 'SubObjects':
-            KOA1.SubObjects(args[0], args[1], args[2])
+            KOA1.SubObjects(*args)
         if func == 'DecomposeNum':
-            KOA1.DecomposeNum(args[0], args[1], args[2])
+            KOA1.DecomposeNum(*args)
         if func == 'AddupNum':
-            KOA1.AddupNum(args[0], args[1], args[2])
+            KOA1.AddupNum(*args)
             
         if func == 'composeObjBaseTen':
-            KNBT1.composeObjBaseTen(args[0], args[1])
+            KNBT1.composeObjBaseTen(*args)
         if func == 'composeNumBaseTen':
-            KNBT1.composeNumBaseTen(args[0])
+            KNBT1.composeNumBaseTen(*args)
         if func == 'decomposeObjBaseTen':
-            KNBT1.decomposeObjBaseTen(args[0], args[1])
+            KNBT1.decomposeObjBaseTen(*args)
         if func == 'decomposeNumBaseTen':
-            KNBT1.decomposeNumBaseTen(args[0])
+            KNBT1.decomposeNumBaseTen(*args)
             
         if func == 'CompareWeight':
-            KMD1.CompareWeight(args[0], args[1])
+            KMD1.CompareWeight(*args)
         if func == 'ClassifyCount':
-            KMD1.ClassifyCount(args[0], args[1], args[2], args[3], args[4])
+            KMD1.ClassifyCount(*args)
 
-        io.printTTS("Press 'k' to skip current test case, 'q' to quit all tests, any other key to continue")
+        print("Press 'k' to skip current test case, 'q' to quit all tests, any other key to continue")
         i = input()
         if i == 'k':
             self.flag = 1

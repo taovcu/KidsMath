@@ -161,3 +161,46 @@ class TestCasesK:
         t.execute('guessValue', 50)
         del t
 
+    def AddObjectTestCases(self):
+        t = test.Test()
+        t.execute('AddObjects', 'pear', 3, 4)
+        del t
+
+    def SubObjectTestCases(self):
+        t = test.Test()
+        t.execute('SubObjects', 'pear', 13, 4)
+        del t
+    def DecomposeNumTestCases(self):
+        t = test.Test()
+        t.execute('DecomposeNum', 'pear', 13, 4)
+        del t
+    def AddupNumTestCases(self):
+        t = test.Test()
+        t.execute('AddupNum', 'pear', 13, 4)
+        del t
+    def composeObjBaseTenTestCases(self):
+        t = test.Test()
+        t.execute('composeObjBaseTen', 'pear', 5)
+        del t
+    def decomposeObjBaseTenTestCases(self):
+        t = test.Test()
+        t.execute('decomposeObjBaseTen', 'pear', 15)
+        del t
+    def composeNumBaseTenTestCases(self):
+        t = test.Test()
+        t.execute('composeNumBaseTen', 5)
+        del t
+    def decomposeNumBaseTenTestCases(self):
+        t = test.Test()
+        t.execute('decomposeNumBaseTen', 15)
+        del t
+    def CompareWeightTestCases(self):
+        t = test.Test()
+        t.execute('CompareWeight', 20, 40)
+        del t
+    def ClassifyCountTestCases(self):
+        t = test.Test()
+        t.execute('ClassifyCount', 'pear', 5, 'grapes', 3, 'orange', 7)
+        del t
+
+

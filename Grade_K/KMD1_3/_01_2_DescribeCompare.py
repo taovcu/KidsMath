@@ -24,7 +24,7 @@ def CompareWeight(n1, n2):
         io.printTTS("Double check")
         ans = io.readLine()
         res = ca.checkEqual(ans, 'Joy')
-    io.printTTS("So we know that {} pounds is heavier than {} pounds".format(n1, n2))
+    io.printTTS("So we know that {} pounds is heavier than {} pounds".format(n2, n1))
 
     io.printTTS("Who is lighter, Joy or Bob?")
     ans = io.readLine()
@@ -34,7 +34,7 @@ def CompareWeight(n1, n2):
         ans = io.readLine()
         res = ca.checkEqual(ans, 'Bob')
 
-    io.printTTS("So we know that {} pounds is lighter than {} pounds".format(n2, n1))
+    io.printTTS("So we know that {} pounds is lighter than {} pounds".format(n1, n2))
 
 
 def ClassifyCount(m1, n1, m2, n2, m3, n3):
