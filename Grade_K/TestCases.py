@@ -2,17 +2,7 @@ import sys
 sys.path.append('../')
 
 import Helpers.IO as io
-import Helpers.Control as CTR
 import test
-
-# Import Packages
-import Grade_K.KCC1_3._00_NumberNames as KCC0
-import Grade_K.KCC1_3._01_CountTo100By10s as KCC1
-import Grade_K.KCC1_3._02_CountfromX as KCC2
-import Grade_K.KCC1_3._03_CountTo20 as KCC3
-import Grade_K.KCC4_5._04_5_CountToTell as KCC4
-import Grade_K.KCC6_7._06_7_CompareNum as KCC6
-import Grade_K.BONUS.bonus as Bonus
 
 def TestCases(g):
     if g == 'k':
@@ -201,6 +191,19 @@ class TestCasesK:
     def ClassifyCountTestCases(self):
         t = test.Test()
         t.execute('ClassifyCount', 'pear', 5, 'grapes', 3, 'orange', 7)
+        del t
+
+    def IdentifyShapeTestCases(self):
+        t = test.Test()
+        t.execute('IdentifyShape', 'circle')
+        t.execute('IdentifyShape', 'rectangle')
+        t.execute('IdentifyShape', 'square')
+        t.execute('IdentifyShape', 'triangle')
+        t.execute('IdentifyShape', 'hexagon')
+        t.execute('IdentifyShape', 'cube')
+        t.execute('IdentifyShape', 'cone')
+        t.execute('IdentifyShape', 'cylinder')
+        t.execute('IdentifyShape', 'sphere')
         del t
 
 

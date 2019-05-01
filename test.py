@@ -24,6 +24,7 @@ import Grade_K.KCC6_7._06_7_CompareNum as KCC6
 import Grade_K.KOA1_5._01_5_AlgebraicThink as KOA1
 import Grade_K.KNBT1._01_OperationBaseTen as KNBT1
 import Grade_K.KMD1_3._01_2_DescribeCompare as KMD1
+import Grade_K.KG1_6._01_6_Geometry as KG1
 
 import Grade_K.BONUS.bonus as Bonus
 
@@ -88,6 +89,9 @@ class Test:
         if func == 'ClassifyCount':
             KMD1.ClassifyCount(*args)
 
+        if func == 'IdentifyShape':
+            KG1.IdentifyShape(*args)
+
         print("Press 'k' to skip current test case, 'q' to quit all tests, any other key to continue")
         i = input()
         if i == 'k':
@@ -98,7 +102,8 @@ class Test:
 
 '''
 t = Test()
-t.execute('writeNum', 0, 20)
+t.execute('IdentifyShape', 'circle')
+t.execute('IdentifyShape', 'cube')
 del t
 
 KCC0.Number2Name(3)
