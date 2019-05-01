@@ -1,27 +1,13 @@
-# sudo python -m pip install -U pip
-# sudo python -m pip install -U matplotlib
-# sudo apt-get install python-tk
-
-# Import Modules
 import sys
 sys.path.append('.')
 
-import settings
-
 import Helpers.IO as io
-import time
 import random
-
-import matplotlib.pyplot as plt
-import numpy as np
 import emoji
-import pyttsx3
 
-# Import Packages
 from Grade_K.TestCases import TestCases
 import Helpers.Control as CTR
-import Helpers.text2speech as TTS
-import test
+
 
 def chooseGrade():
     gradeList = [str(i) for i in range(1,9)]
@@ -38,8 +24,12 @@ def chooseGrade():
             io.printTTS("Only Grade {} is currently supported".format(gradeList))
             continue
 
+
+"""
+This is the main function of the project
+"""
 def main():
-    print(">>>> Joy Coding Main Function")
+    print(">>>> Welcome to KidsMath, Enjoy! <<<<")
 
     grade = chooseGrade()
     k = TestCases(grade)
