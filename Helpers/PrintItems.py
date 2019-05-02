@@ -10,6 +10,7 @@ import emoji
 # squares, circles, triangles, rectangles, hexagons
 # cubes, cones, cylinders, and spheres
 def plot2D(s):
+    fig = plt.figure()
     plt.axes()
 
     if s == 'circle':
@@ -28,7 +29,7 @@ def plot2D(s):
 
     plt.gca().add_patch(shape)
     plt.axis('scaled')
-    plt.show()
+    return fig
 
 
 # cubes, cones, cylinders, and spheres
@@ -86,7 +87,7 @@ def plot3D(s):
         # Plot the surface
         ax.plot_surface(x, y, z, color='c')
 
-    plt.show()
+    return fig
 
 
 def arrange(n, s):
