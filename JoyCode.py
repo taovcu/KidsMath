@@ -7,7 +7,7 @@ import emoji
 
 from Grade_K.TestCases import TestCases
 import Helpers.Control as CTR
-
+import GUIs.gui as GUI
 
 def chooseGrade():
     gradeList = [str(i) for i in range(1,9)]

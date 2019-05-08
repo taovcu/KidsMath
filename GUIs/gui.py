@@ -6,9 +6,12 @@ from tkinter import *
 
 
 class NotebookDemo(Frame):
-    ansPanel = None
     def __init__(self, isapp=True, name='notebookdemo'):
         Frame.__init__(self, name=name)
+        self.ansPanel = None
+        self.answers = ["Answer0", "Answer1", "Answer2", "Answer3"]
+
+        self.v = IntVar()
         self.pack(expand=Y, fill=BOTH)
         self.master.title('Notebook Demo')
         self.isapp = isapp
@@ -34,6 +37,7 @@ class NotebookDemo(Frame):
         nb.pack(fill=BOTH, expand=Y, padx=2, pady=3)
         self._create_descrip_tab(nb)
         self._create_text_tab(nb, "Hint")
+        self._create_answer_panel()
 
     def helloCallBack(self):
         return; 
@@ -41,15 +45,14 @@ class NotebookDemo(Frame):
     def _create_answer_panel(self):
         self.ansPanel = Frame(self, name='answer')
         self.ansPanel.pack(side=LEFT, fill=BOTH, expand=Y)
-        B = Button(self.ansPanel, text = "Check Answer", command = self.helloCallBack)
-        B.pack(side=TOP)
+        B1 = Button(self.ansPanel, text = "Check the answer", font=("Courier", 13))
+        B1.pack(side=TOP, padx=50, pady=30)
+        self._create_answer_button()
 
-    def _create_answer_button(self, ansFrame, ansText, CheckVar):
-        C = Checkbutton(ansFrame, text = ansText, variable = CheckVar, \
-                 onvalue = 1, offvalue = 0, height=5, width = 10)
-        C.pack(side=LEFT)
-        return C
-
+    def _create_answer_button(self):
+        for i in range(len(self.answers)):
+            Radiobutton(self.ansPanel, text = self.answers[i], variable = self.v, value = i,
+                          command = self.helloCallBack, font=("Courier", 12)).pack(anchor = CENTER)
  
     def _create_descrip_tab(self, nb):
         # frame to hold contentx
