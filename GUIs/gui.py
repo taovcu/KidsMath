@@ -19,6 +19,8 @@ class KidsMath(Frame):
         Frame.__init__(self, name=name)
         self.ansPanel = None
         self.answers = ["Answer0", "Answer1", "Answer2", "Answer3"]
+        self.questText = StringVar()
+        self.hintText = StringVar()
 
         self.v = IntVar()
         self.pack(expand=Y, fill=BOTH)
@@ -68,15 +70,12 @@ class KidsMath(Frame):
         nb.pack(fill=BOTH, expand=Y, padx=2, pady=3)
         #self._create_tab(nb, 'quest', 'Question description:', 'Question Description')
         #self._create_tab(nb, 'hint', 'Hint:', 'Hint')
-        self._create_tab(nb, 'quest', '', 'Question Description')
-        self._create_tab(nb, 'hint', '', 'Hint')
+        self.questText = 'Question Description'
+        self._create_tab(nb, 'quest', self.questText, 'Question Description')
+        self.hintText = 'Hint'
+        self._create_tab(nb, 'hint', self.hintText, 'Hint')
         self._create_answer_panel()
 
-    def _update_question(self):
-        return
-
-    def _update_hint(self):
-        return
 
     def helloCallBack(self):
         return
@@ -93,7 +92,13 @@ class KidsMath(Frame):
             Radiobutton(self.ansPanel, text = self.answers[i], variable = self.v, value = i,
                         command = self.helloCallBack, font=("Courier", 12)).pack(anchor = CENTER)
  
-    def _update_answer(self):
+    def _update_question(self, q):
+        self.questText = q
+
+    def _update_hint(self, h):
+        self.hintText = h
+
+    def _update_answer(self, ansList):
         return
 
  
@@ -102,10 +107,7 @@ class KidsMath(Frame):
         #frame = Frame(nb, name='descrip')
         frame = Frame(nb, name=n)
  
-        # widgets to be displayed on 'Description' tab
-        msg = [m]
- 
-        lbl = Label(frame, wraplength='4i', justify=LEFT, anchor=N, text=''.join(msg))
+        lbl = Label(frame, wraplength='4i', justify=LEFT, anchor=N, text=m)
         # position and set resize behaviour
         lbl.grid(row=0, column=0, columnspan=2, sticky='new', pady=5)
         frame.rowconfigure(1, weight=1)
