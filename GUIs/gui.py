@@ -1,4 +1,5 @@
 import sys
+sys.path.append('.')
 sys.path.append('../')
 
 import tkinter as tk
@@ -12,7 +13,7 @@ import emoji
 
 from Grade_K.TestCases import TestCases
 import Helpers.Control as CTR
-
+import test
 
 class KidsMath(Frame):
     def __init__(self, isapp=True, name='kidsmath'):
@@ -34,9 +35,9 @@ class KidsMath(Frame):
         B0 = Button(self, text = "Select Grade", command=lambda: var.set(1), font=("Courier", 13))
         B0.pack(side=TOP, padx=50, pady=30)
         gradeList = [str(i) for i in range(1,9)]
-        gradeList = ['k'] + gradeList
-        for i in range(len(gradeList)):
-            rb = Radiobutton(self, text = gradeList[i], variable = self.v, value = i)
+        self.gradelist = ['k'] + gradeList
+        for i in range(len(self.gradelist)):
+            rb = Radiobutton(self, text = self.gradelist[i], variable = self.v, value = i)
             rb.pack()
             self.radioButtons.append(rb)
 
@@ -45,10 +46,40 @@ class KidsMath(Frame):
         for rb in self.radioButtons:
             rb.pack_forget()
 
+        self.buildTestCases()
         self._create_widgets()
+        self.runTests()
 
-    def chooseGrade(self):
-        print(self.v.get())
+    def runTests(self):
+        for t in self.selectedTests:
+            getattr(self.testcases, t)()
+
+    def buildTestCases(self):
+        self.testcases = TestCases(self.gradelist[self.v.get()])
+        object_methods = [method_name for method_name in dir(self.testcases)
+                      if callable(getattr(self.testcases, method_name))]
+        object_methods = CTR.RemoveSysMethods(object_methods)
+        self.alltestcases = object_methods
+        self.selectedTests = []
+
+        var = tk.IntVar()
+        B0 = Button(self, text = 'There are totally {} test cases implemented. Please select tests'.format(len(self.alltestcases)), command=lambda: var.set(1), font=("Courier", 13))
+        B0.pack(side=TOP, padx=50, pady=30)
+
+        checkvars = [tk.IntVar() for i in range(len(self.alltestcases))]
+        allcheckbuttons = []
+        for i in range(len(self.alltestcases)):
+            cb = Checkbutton(self, text = self.alltestcases[i], variable=checkvars[i], onvalue=1, offvalue=0)
+            cb.pack(padx = 20, anchor = W)
+            allcheckbuttons.append(cb)
+        B0.wait_variable(var)
+        B0.pack_forget()
+        for i in range(len(checkvars)):
+            if checkvars[i].get():
+                self.selectedTests.append(self.alltestcases[i]) 
+
+        for cb in allcheckbuttons:
+            cb.pack_forget()
 
     def _create_widgets(self):
         self._create_question_panel()
@@ -70,9 +101,9 @@ class KidsMath(Frame):
         nb.pack(fill=BOTH, expand=Y, padx=2, pady=3)
         #self._create_tab(nb, 'quest', 'Question description:', 'Question Description')
         #self._create_tab(nb, 'hint', 'Hint:', 'Hint')
-        self.questText = 'Question Description'
+        self.questText.set('Question Description')
         self._create_tab(nb, 'quest', self.questText, 'Question Description')
-        self.hintText = 'Hint'
+        self.hintText.set('Hint')
         self._create_tab(nb, 'hint', self.hintText, 'Hint')
         self._create_answer_panel()
 
@@ -93,10 +124,10 @@ class KidsMath(Frame):
                         command = self.helloCallBack, font=("Courier", 12)).pack(anchor = CENTER)
  
     def _update_question(self, q):
-        self.questText = q
+        self.questText.set(q)
 
     def _update_hint(self, h):
-        self.hintText = h
+        self.hintText.set(h)
 
     def _update_answer(self, ansList):
         return
@@ -107,7 +138,7 @@ class KidsMath(Frame):
         #frame = Frame(nb, name='descrip')
         frame = Frame(nb, name=n)
  
-        lbl = Label(frame, wraplength='4i', justify=LEFT, anchor=N, text=m)
+        lbl = Label(frame, wraplength='4i', justify=LEFT, anchor=N, textvariable=m)
         # position and set resize behaviour
         lbl.grid(row=0, column=0, columnspan=2, sticky='new', pady=5)
         frame.rowconfigure(1, weight=1)
