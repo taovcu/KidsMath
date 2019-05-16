@@ -22,7 +22,7 @@ class KidsMath(Frame):
         self.answers = [StringVar(), StringVar(), StringVar(), StringVar()]
         self.questText = StringVar()
         self.hintText = StringVar()
-
+        self.expectedAns = StringVar()
         self.v = IntVar()
         self.pack(expand=Y, fill=BOTH)
         self.master.title('KidsMath')
@@ -54,13 +54,20 @@ class KidsMath(Frame):
     def runTests(self):
         for t in self.selectedTests:
             #getattr(self.testcases, t)()
-            print(t)
             self.displayTest(t)
 
+    def checkAns(self, a):
+        if self.answers[self.v.get()].get() == a:
+            t = "Correct!"
+        else:
+            t = "Wrong!"     
+        self.checkedAns.config(text = t)
+        self.checkedAns.pack(anchor = CENTER)
 
     def displayTest(self, t):
         if t == 'AddObjectTestCases':
             self._update_question('Bob has 3 pears, Joy has 4 pears, how many pears do they have in total?')
+            self.expectedAns.set('7')
             self._update_answer(['1', '2', '4', '7'])
 
     def buildTestCases(self):
@@ -114,7 +121,6 @@ class KidsMath(Frame):
         self._create_tab(nb, 'quest', self.questText, 'Question Description')
         self.hintText.set('Hint')
         self._create_tab(nb, 'hint', self.hintText, 'Hint')
-        time.sleep(5)
         self._create_answer_panel()
 
 
@@ -124,13 +130,14 @@ class KidsMath(Frame):
     def _create_answer_panel(self):
         self.ansPanel = Frame(self, name='answer')
         self.ansPanel.pack(side=LEFT, fill=BOTH, expand=Y)
-        B1 = Button(self.ansPanel, text = "Check the answer", font=("Courier", 13))
+        B1 = Button(self.ansPanel, text = "Check the answer", font=("Courier", 13), command = lambda: self.checkAns(self.expectedAns.get()))
         B1.pack(side=TOP, padx=50, pady=30)
         self._create_answer_button()
+        self.checkedAns = Label(self.ansPanel, wraplength='4i', justify=LEFT, anchor=N, text=None)
 
     def _create_answer_button(self):
         for i in range(len(self.answers)):
-            rb = Radiobutton(self.ansPanel, textvariable = self.answers[i], variable = self.v, value = i, command = self.helloCallBack, font=("Courier", 12))
+            rb = Radiobutton(self.ansPanel, textvariable = self.answers[i], variable = self.v, value = i, font=("Courier", 12))
             rb.pack(anchor = CENTER)
             self.ansButtons.append(rb)
 
