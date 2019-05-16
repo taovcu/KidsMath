@@ -11,15 +11,15 @@ import Helpers.IO as io
 import random
 import emoji
 
+import time
 from Grade_K.TestCases import TestCases
 import Helpers.Control as CTR
-import test
 
 class KidsMath(Frame):
     def __init__(self, isapp=True, name='kidsmath'):
         Frame.__init__(self, name=name)
         self.ansPanel = None
-        self.answers = ["Answer0", "Answer1", "Answer2", "Answer3"]
+        self.answers = [StringVar(), StringVar(), StringVar(), StringVar()]
         self.questText = StringVar()
         self.hintText = StringVar()
 
@@ -31,6 +31,7 @@ class KidsMath(Frame):
 
         # user choose grade
         self.radioButtons = []
+        self.ansButtons = []
         var = tk.IntVar()
         B0 = Button(self, text = "Select Grade", command=lambda: var.set(1), font=("Courier", 13))
         B0.pack(side=TOP, padx=50, pady=30)
@@ -52,7 +53,15 @@ class KidsMath(Frame):
 
     def runTests(self):
         for t in self.selectedTests:
-            getattr(self.testcases, t)()
+            #getattr(self.testcases, t)()
+            print(t)
+            self.displayTest(t)
+
+
+    def displayTest(self, t):
+        if t == 'AddObjectTestCases':
+            self._update_question('Bob has 3 pears, Joy has 4 pears, how many pears do they have in total?')
+            self._update_answer(['1', '2', '4', '7'])
 
     def buildTestCases(self):
         self.testcases = TestCases(self.gradelist[self.v.get()])
@@ -105,6 +114,7 @@ class KidsMath(Frame):
         self._create_tab(nb, 'quest', self.questText, 'Question Description')
         self.hintText.set('Hint')
         self._create_tab(nb, 'hint', self.hintText, 'Hint')
+        time.sleep(5)
         self._create_answer_panel()
 
 
@@ -120,9 +130,10 @@ class KidsMath(Frame):
 
     def _create_answer_button(self):
         for i in range(len(self.answers)):
-            Radiobutton(self.ansPanel, text = self.answers[i], variable = self.v, value = i,
-                        command = self.helloCallBack, font=("Courier", 12)).pack(anchor = CENTER)
- 
+            rb = Radiobutton(self.ansPanel, textvariable = self.answers[i], variable = self.v, value = i, command = self.helloCallBack, font=("Courier", 12))
+            rb.pack(anchor = CENTER)
+            self.ansButtons.append(rb)
+
     def _update_question(self, q):
         self.questText.set(q)
 
@@ -130,8 +141,8 @@ class KidsMath(Frame):
         self.hintText.set(h)
 
     def _update_answer(self, ansList):
-        return
-
+        for i in range(len(ansList)):
+            self.answers[i].set(ansList[i])
  
     def _create_tab(self, nb, n, m, t):
         # frame to hold contentx
