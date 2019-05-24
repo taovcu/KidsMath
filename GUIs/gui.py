@@ -66,7 +66,7 @@ class KidsMath(Frame):
 
     def displayTest(self, t):
         if t == 'AddObjectTestCases':
-            self._update_question('Bob has 3 pears, Joy has 4 pears, how many pears do they have in total?')
+            self._update_question('Bob has 3 pears' + u'\u26f3' + ', Joy has 4 pears, how many pears do they have in total?')
             self.expectedAns.set('7')
             self._update_answer(['1', '2', '4', '7'])
 
