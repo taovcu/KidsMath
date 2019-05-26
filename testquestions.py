@@ -10,46 +10,50 @@ testcases = {
                     [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]
                     ],
                 'Number2NameCases':
-                    [['Translate Digit to English words \n 7', 'Seven', ['Five', 'Seven', 'Nine', 'Eleven']]
+                    [['Translate Digit to English words \n\n 7', 'Seven', ['Five', 'Seven', 'Nine', 'Eleven']]
                     ],
                 'Name2NumberCases':
-                    [['Translate English words to digit \n Eight', '8', ['3', '5', '8', '11']]],
+                    [['Translate English words to digit \n\n Eight', '8', ['3', '5', '8', '11']]],
                 'countNumby10sCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [['Count number by tens in sequence \n\n Count from 10 to 100 by tens', '10 20 30 40 50 60 70 80 90 100', ['10 20 30 40 50 60 70 80 90 100', '10 20 30 40 60 70  80  90 100', '10 20 30  50  60 70 80 90 100', '20  30  40 50 60 70 80 90 100']]],
                 'countNumfromXCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [['Count number from 6 to 13', '6 7 8 9 10 11 12 13', ['6 7  9 10 11 12 13', '6  7  8 9 10 11 13', '7  8 9 10  11 12 13', '6 7 8 9 10 11 12 13']]],
                 'writeNumCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [['Write number 8 in English word', 'eight', ['', '', '2', '']]],
                 'countObjectCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [['How many pears do you see?', '6', ['', '', '', '']]],
                 'compareObjectCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [['Who has more pears, Joy or Bob?', 'Joy', ['', '', '', '']]],
                 'compareNumCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [['Choose the greatest number', '12', ['6', '9', '12', '10']]],
                 'subtractTestCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [
+                        ['Subtract numbers \n\n 10 - 5 = ?', '5', ['6', '5', '12', '13']],
+                        ['Subtract numbers \n\n 15 - 5 = ?', '10', ['6', '5', '10', '13']],
+                        ['Subtract numbers \n\n 15 - 7 = ?', '8', ['8', '5', '10', '13']]
+                    ],
                 'compareTestCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [['Compare number of objects\n\n Who has more cookies, Joy or Bob ?', 'Bob', ['', '', '', '']]],
                 'guessTestCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [['Guess a number less than 100?', '24', ['', '', '', '']]],
                 'SubObjectTestCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [['Joy has 10 pears, Bob eats 4, how many pears are left?', '6', ['6', '9', '14', '7']]],
                 'DecomposeNumTestCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [['Decompose numbers \n\n 9 = ?', '4 + 5', ['1 + 7', '2+6', '4 + 5', '2 + 8']]],
                 'AddupNumTestCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [['Add numbers \n\n Joy has 4 pears, how many pears Joy need buy to have 9?', '5', ['6', '9', '5', '13']]],
                 'composeObjBaseTenTestCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [['Compose object based on ten \n\n Joy has 10 pears, Bob gives Joy 4 more, how many pears does Joy have now?', '14', ['6', '9', '12', '14']]],
                 'decomposeObjBaseTenTestCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [['Decompose object based on ten \n\n Joy has 16 pears, Bob takes away 10, how many pears does Joy have now', '6', ['6', '9', '12', '13']]],
                 'composeNumBaseTenTestCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [['10 + 5 = ?', '15', ['15', '9', '12', '13']]],
                 'decomposeNumBaseTenTestCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [['Add numbers \n 17 - 10 = ?', '7', ['6', '9', '7', '13']]],
                 'CompareWeightTestCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [['Bob is 20 pounds, Joy is 40 pounds, who is heavier?', 'Joy', ['Joy', 'Bob', '', '']]],
                 'ClassifyCountTestCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]],
+                    [['How many grapes do you see?', '6', ['6', '', '', '']]],
                 'IdentifyShapeTestCases':
-                    [['Add numbers \n 4 + 5 = ?', '9', ['6', '9', '12', '13']]]
+                    [['What is the shape?', 'Cone', ['Cone', 'Rectangle', 'Triangle', 'Square']]]
             }

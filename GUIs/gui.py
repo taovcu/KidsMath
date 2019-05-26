@@ -88,6 +88,16 @@ class KidsMath(Frame):
             self.nextbutton.wait_variable(self.nextval)
             self.checkedAns.config(text = '')
 
+    def buildRandomTests(self, r):
+        RandomMethodList = []
+        tests = self.alltestcases
+        for i in range(r):
+            secure_random = random.SystemRandom()
+            m = secure_random.choice(tests)
+            RandomMethodList.append(m)
+            tests.remove(m)
+        self.selectedTests = RandomMethodList
+
 
     def buildTestCases(self):
         self.testcases = TestCases(self.gradelist[self.v.get()])
@@ -101,17 +111,37 @@ class KidsMath(Frame):
         B0 = Button(self, text = 'There are totally {} test cases implemented. Please select tests'.format(len(self.alltestcases)), command=lambda: var.set(1), font=("Courier", 13))
         B0.pack(side=TOP, padx=50, pady=30)
 
+        randomList = [5, 10, 15, 20]
+        self.radioButtons = []
+        for i in range(len(randomList)):
+            rb = Radiobutton(self, text = 'Randomly Select {} Tests'.format(randomList[i]), variable = self.v, value = i)
+            rb.pack()
+            self.radioButtons.append(rb)
+
         checkvars = [tk.IntVar() for i in range(len(self.alltestcases))]
         allcheckbuttons = []
         for i in range(len(self.alltestcases)):
             cb = Checkbutton(self, text = self.alltestcases[i], variable=checkvars[i], onvalue=1, offvalue=0)
             cb.pack(padx = 20, anchor = W)
             allcheckbuttons.append(cb)
+
+        RandomMethodList = []
+        tests = self.alltestcases
+        for i in range(randomList[self.v.get()]):
+            secure_random = random.SystemRandom()
+            m = secure_random.choice(tests)
+            RandomMethodList.append(m)
+            tests.remove(m)
+        self.selectedTests = RandomMethodList
+
         B0.wait_variable(var)
         B0.pack_forget()
         for i in range(len(checkvars)):
             if checkvars[i].get():
                 self.selectedTests.append(self.alltestcases[i]) 
+
+        for rb in self.radioButtons:
+            rb.pack_forget()
 
         for cb in allcheckbuttons:
             cb.pack_forget()
