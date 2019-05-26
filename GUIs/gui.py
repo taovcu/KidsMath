@@ -10,10 +10,12 @@ from tkinter import *
 import Helpers.IO as io
 import random
 import emoji
+import testquestions
 
 import time
 from Grade_K.TestCases import TestCases
 import Helpers.Control as CTR
+
 
 class KidsMath(Frame):
     def __init__(self, isapp=True, name='kidsmath'):
@@ -52,9 +54,20 @@ class KidsMath(Frame):
         self.runTests()
 
     def runTests(self):
+        self.nextval = tk.IntVar()
+        self.nextbutton = tk.Button(self.ansPanel, text="Next >>", command=lambda: self.nextval.set(1))
         for t in self.selectedTests:
+            self.checkedAns.config(text = '')
             #getattr(self.testcases, t)()
             self.displayTest(t)
+            #self.nextbutton.wait_variable(self.nextval)
+        self.displayTest('alltestdone')
+        for rb in self.ansButtons:
+            rb.pack_forget()
+        self.B1.pack_forget()
+        self.nextbutton.pack_forget()
+        self.checkedAns.config(text = 'All tests are done.')
+        
 
     def checkAns(self, a):
         if self.answers[self.v.get()].get() == a:
@@ -63,12 +76,18 @@ class KidsMath(Frame):
             t = "Wrong!"     
         self.checkedAns.config(text = t)
         self.checkedAns.pack(anchor = CENTER)
+        self.nextbutton.pack(anchor = CENTER)
+
 
     def displayTest(self, t):
-        if t == 'AddObjectTestCases':
-            self._update_question('Bob has 3 pears' + u'\u26f3' + ', Joy has 4 pears, how many pears do they have in total?')
-            self.expectedAns.set('7')
-            self._update_answer(['1', '2', '4', '7'])
+        paras = testquestions.testcases[t]
+        for p in paras:
+            self._update_question(p[0])
+            self.expectedAns.set(p[1])
+            self._update_answer(p[2])
+            self.nextbutton.wait_variable(self.nextval)
+            self.checkedAns.config(text = '')
+
 
     def buildTestCases(self):
         self.testcases = TestCases(self.gradelist[self.v.get()])
@@ -130,8 +149,8 @@ class KidsMath(Frame):
     def _create_answer_panel(self):
         self.ansPanel = Frame(self, name='answer')
         self.ansPanel.pack(side=LEFT, fill=BOTH, expand=Y)
-        B1 = Button(self.ansPanel, text = "Check the answer", font=("Courier", 13), command = lambda: self.checkAns(self.expectedAns.get()))
-        B1.pack(side=TOP, padx=50, pady=30)
+        self.B1 = Button(self.ansPanel, text = "Check the answer", font=("Courier", 13), command = lambda: self.checkAns(self.expectedAns.get()))
+        self.B1.pack(side=TOP, padx=50, pady=30)
         self._create_answer_button()
         self.checkedAns = Label(self.ansPanel, wraplength='4i', justify=LEFT, anchor=N, text=None)
 
