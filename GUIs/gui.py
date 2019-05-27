@@ -55,9 +55,14 @@ class KidsMath(Frame):
 
     def runTests(self):
         self.nextval = tk.IntVar()
-        self.nextbutton = tk.Button(self.ansPanel, text="Next >>", command=lambda: self.nextval.set(1))
+        photo=PhotoImage(file="joypixels/NextSymbol.png")
+        self.cross=PhotoImage(file="joypixels/crossmark.png")
+        self.check=PhotoImage(file="joypixels/checkmark.png")
+        self.nextbutton = tk.Button(self.questionPanel, image = photo, command=lambda: self.nextval.set(1))
+        #self.nextbutton = tk.Button(self.ansPanel, image = photo, command=lambda: self.nextval.set(1))
         for t in self.selectedTests:
             self.checkedAns.config(text = '')
+            self.checkedAns.pack_forget()
             #getattr(self.testcases, t)()
             self.displayTest(t)
             #self.nextbutton.wait_variable(self.nextval)
@@ -72,9 +77,11 @@ class KidsMath(Frame):
     def checkAns(self, a):
         if self.answers[self.v.get()].get() == a:
             t = "Correct!"
+            self.checkedAns.config(image = self.check)
         else:
-            t = "Wrong!"     
-        self.checkedAns.config(text = t)
+            t = "Wrong!"
+            self.checkedAns.config(image = self.cross)
+        #self.checkedAns.config(text = t)
         self.checkedAns.pack(anchor = CENTER)
         self.nextbutton.pack(anchor = CENTER)
 
@@ -82,11 +89,27 @@ class KidsMath(Frame):
     def displayTest(self, t):
         paras = testquestions.testcases[t]
         for p in paras:
-            self._update_question(p[0])
-            self.expectedAns.set(p[1])
-            self._update_answer(p[2])
-            self.nextbutton.wait_variable(self.nextval)
-            self.checkedAns.config(text = '')
+            print
+            self._update_question(p['questiontext'])
+            self.expectedAns.set(p['expectedAns'])
+            self._update_answer(p['ansList'])
+            self.checkedAns.pack_forget()
+            objs = []
+            if 'pictures' in p:
+                plist = p['pictures']
+                pic = []
+                rows = len(plist)
+                for i in range(rows):
+                    print(plist[i])
+                    pic.append(PhotoImage(file='joypixels/' + plist[i][1] + '.png'))
+                    for j in range(plist[i][0]):
+                        lb = Label(self.pictureFrame, image = pic[-1])
+                        print('lb', lb)
+                        objs.append(lb)
+                        lb.grid(row=i, column=j, sticky=W) 
+                self.nextbutton.wait_variable(self.nextval)
+                for o in objs:
+                    o.grid_forget()
 
     def buildRandomTests(self, r):
         RandomMethodList = []
@@ -111,7 +134,7 @@ class KidsMath(Frame):
         B0 = Button(self, text = 'There are totally {} test cases implemented. Please select tests'.format(len(self.alltestcases)), command=lambda: var.set(1), font=("Courier", 13))
         B0.pack(side=TOP, padx=50, pady=30)
 
-        randomList = [5, 10, 15, 20]
+        randomList = [0, 5, 10, 15, 20]
         self.radioButtons = []
         for i in range(len(randomList)):
             rb = Radiobutton(self, text = 'Randomly Select {} Tests'.format(randomList[i]), variable = self.v, value = i)
@@ -151,11 +174,11 @@ class KidsMath(Frame):
         self._create_answer_panel()
  
     def _create_question_panel(self):
-        questionPanel = Frame(self, name='question')
-        questionPanel.pack(side=LEFT, fill=BOTH, expand=Y)
+        self.questionPanel = Frame(self, name='question')
+        self.questionPanel.pack(side=LEFT, fill=BOTH, expand=Y)
  
         # create the notebook
-        nb = ttk.Notebook(questionPanel, name='notebook')
+        nb = ttk.Notebook(self.questionPanel, name='notebook')
   
         # extend bindings to top level window allowing
         #   CTRL+TAB - cycles thru tabs
@@ -170,6 +193,8 @@ class KidsMath(Frame):
         self._create_tab(nb, 'quest', self.questText, 'Question Description')
         self.hintText.set('Hint')
         self._create_tab(nb, 'hint', self.hintText, 'Hint')
+        self.pictureFrame = Frame(self.questionPanel, name='picture')
+        self.pictureFrame.pack()
         self._create_answer_panel()
 
 
