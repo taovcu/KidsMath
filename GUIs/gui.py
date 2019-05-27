@@ -97,14 +97,13 @@ class KidsMath(Frame):
             objs = []
             if 'pictures' in p:
                 plist = p['pictures']
-                pic = []
+                pics = {}
                 rows = len(plist)
                 for i in range(rows):
-                    print(plist[i])
-                    pic.append(PhotoImage(file='joypixels/' + plist[i][1] + '.png'))
-                    for j in range(plist[i][0]):
-                        lb = Label(self.pictureFrame, image = pic[-1])
-                        print('lb', lb)
+                    for j in range(len(plist[i])):
+                        if plist[i][j] not in pics:
+                            pics[plist[i][j]] = PhotoImage(file='joypixels/' + plist[i][j] + '.png')
+                        lb = Label(self.pictureFrame, image = pics[plist[i][j]])
                         objs.append(lb)
                         lb.grid(row=i, column=j, sticky=W) 
                 self.nextbutton.wait_variable(self.nextval)
@@ -148,6 +147,10 @@ class KidsMath(Frame):
             cb.pack(padx = 20, anchor = W)
             allcheckbuttons.append(cb)
 
+
+        B0.wait_variable(var)
+        B0.pack_forget()
+
         RandomMethodList = []
         tests = self.alltestcases
         for i in range(randomList[self.v.get()]):
@@ -157,8 +160,6 @@ class KidsMath(Frame):
             tests.remove(m)
         self.selectedTests = RandomMethodList
 
-        B0.wait_variable(var)
-        B0.pack_forget()
         for i in range(len(checkvars)):
             if checkvars[i].get():
                 self.selectedTests.append(self.alltestcases[i]) 
