@@ -30,6 +30,7 @@ class KidsMath(Frame):
         self.master.title('KidsMath')
         self.isapp = isapp
 
+        self.stat = {'correctCases' : 0, 'wrongCases' : 0}
 
         # user choose grade
         self.radioButtons = []
@@ -66,21 +67,24 @@ class KidsMath(Frame):
             #getattr(self.testcases, t)()
             self.displayTest(t)
             #self.nextbutton.wait_variable(self.nextval)
-        self.displayTest('alltestdone')
         for rb in self.ansButtons:
             rb.pack_forget()
         self.B1.pack_forget()
         self.nextbutton.pack_forget()
-        self.checkedAns.config(text = 'All tests are done.')
-        
+        #self.checkedAns.config(text = 'All tests are done.')
+        self.checkedAns.pack_forget()
+        self._update_question('')
+        Label(self.ansPanel, text='All tests are done.\nCorrect:{}\nWrong:{}\nScore:{}'.format(self.stat['correctCases'], self.stat['wrongCases'], (self.stat['correctCases']/(self.stat['correctCases']+self.stat['wrongCases'])*100))).pack() 
 
     def checkAns(self, a):
         if self.answers[self.v.get()].get() == a:
             t = "Correct!"
             self.checkedAns.config(image = self.check)
+            self.stat['correctCases'] += 1
         else:
             t = "Wrong!"
             self.checkedAns.config(image = self.cross)
+            self.stat['wrongCases'] += 1
         #self.checkedAns.config(text = t)
         self.checkedAns.pack(anchor = CENTER)
         self.nextbutton.pack(anchor = CENTER)
@@ -89,7 +93,6 @@ class KidsMath(Frame):
     def displayTest(self, t):
         paras = testquestions.testcases[t]
         for p in paras:
-            print
             self._update_question(p['questiontext'])
             self.expectedAns.set(p['expectedAns'])
             self._update_answer(p['ansList'])
@@ -106,9 +109,9 @@ class KidsMath(Frame):
                         lb = Label(self.pictureFrame, image = pics[plist[i][j]])
                         objs.append(lb)
                         lb.grid(row=i, column=j, sticky=W) 
-                self.nextbutton.wait_variable(self.nextval)
-                for o in objs:
-                    o.grid_forget()
+            self.nextbutton.wait_variable(self.nextval)
+            for o in objs:
+                o.grid_forget()
 
     def buildRandomTests(self, r):
         RandomMethodList = []
@@ -163,6 +166,8 @@ class KidsMath(Frame):
         for i in range(len(checkvars)):
             if checkvars[i].get():
                 self.selectedTests.append(self.alltestcases[i]) 
+
+        print(self.selectedTests)
 
         for rb in self.radioButtons:
             rb.pack_forget()

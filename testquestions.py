@@ -55,7 +55,7 @@ testcases = {
                 'CompareWeightTestCases':
                     [{'questiontext':'Bob is 20 pounds, Joy is 40 pounds, who is heavier?', 'expectedAns':'Joy', 'ansList':['Joy', 'Bob']}],
                 'ClassifyCountTestCases':
-                    [{'questiontext':'How many grapess do you see?', 'expectedAns':'6', 'ansList':['6', '7', '8', '9'], 'pictures':[['pear', 'grapes', 'grapes', 'red-appale'], ['pear']+['grapes']*4, ['watermelon']*5]}],
+                    [{'questiontext':'How many grapess do you see?', 'expectedAns':'6', 'ansList':['6', '7', '8', '9'], 'pictures':[['pear', 'grapes', 'grapes', 'red-apple'], ['pear']+['grapes']*4, ['watermelon']*5]}],
                 'IdentifyShapeTestCases':
                     [{'questiontext':'What is the shape?', 'expectedAns':'Cone', 'ansList':['Cone', 'Rectangle', 'Triangle', 'Square']}]
             }
