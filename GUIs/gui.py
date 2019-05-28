@@ -19,7 +19,7 @@ import Helpers.Control as CTR
 
 class KidsMath(Frame):
     def __init__(self, isapp=True, name='kidsmath'):
-        Frame.__init__(self, name=name)
+        Frame.__init__(self, name=name, borderwidth=5, height=150, width=200)
         self.ansPanel = None
         self.answers = [StringVar(), StringVar(), StringVar(), StringVar()]
         self.questText = StringVar()
@@ -139,15 +139,15 @@ class KidsMath(Frame):
         randomList = [0, 5, 10, 15, 20]
         self.radioButtons = []
         for i in range(len(randomList)):
-            rb = Radiobutton(self, text = 'Randomly Select {} Tests'.format(randomList[i]), variable = self.v, value = i)
-            rb.pack()
+            rb = Radiobutton(self, text = 'Randomly Select {} Tests'.format(randomList[i]), variable = self.v, value = i, font=("Courier", 13))
+            rb.pack(padx = 50, anchor = W)
             self.radioButtons.append(rb)
 
         checkvars = [tk.IntVar() for i in range(len(self.alltestcases))]
         allcheckbuttons = []
         for i in range(len(self.alltestcases)):
             cb = Checkbutton(self, text = self.alltestcases[i], variable=checkvars[i], onvalue=1, offvalue=0)
-            cb.pack(padx = 20, anchor = W)
+            cb.pack(padx = 55, anchor = W)
             allcheckbuttons.append(cb)
 
 
@@ -167,8 +167,6 @@ class KidsMath(Frame):
             if checkvars[i].get():
                 self.selectedTests.append(self.alltestcases[i]) 
 
-        print(self.selectedTests)
-
         for rb in self.radioButtons:
             rb.pack_forget()
 
@@ -180,7 +178,7 @@ class KidsMath(Frame):
         self._create_answer_panel()
  
     def _create_question_panel(self):
-        self.questionPanel = Frame(self, name='question')
+        self.questionPanel = Frame(self, name='question', width=100, height=100)
         self.questionPanel.pack(side=LEFT, fill=BOTH, expand=Y)
  
         # create the notebook
