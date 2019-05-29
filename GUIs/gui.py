@@ -235,8 +235,13 @@ class KidsMath(Frame):
         self.hintText.set(h)
 
     def _update_answer(self, ansList):
-        for i in range(len(ansList)):
-            self.answers[i].set(ansList[i])
+        self.v.set(-1)
+        for i in range(len(self.answers)):
+            if i < len(ansList):
+                self.answers[i].set(ansList[i])
+            else:
+                self.answers[i].set('N/A')
+
  
     def _create_tab(self, nb, n, m, t):
         # frame to hold contentx

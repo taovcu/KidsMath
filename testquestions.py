@@ -18,8 +18,8 @@ testcases = {
                     ],
                 'Name2NumberCases':
                     [{'questiontext':'Translate English words to digit \n\n Eight', 'expectedAns':'8', 'ansList':['3', '5', '8', '11']},
-                     {'questiontext':'Translate English words to digit \n\n Thirteen', 'expectedAns':'8', 'ansList':['3', '19', '13', '11']},
-                     {'questiontext':'Translate English words to digit \n\n Nineteen', 'expectedAns':'8', 'ansList':['13', '19', '8', '11']}
+                     {'questiontext':'Translate English words to digit \n\n Thirteen', 'expectedAns':'13', 'ansList':['3', '19', '13', '11']},
+                     {'questiontext':'Translate English words to digit \n\n Nineteen', 'expectedAns':'19', 'ansList':['13', '19', '8', '11']}
                     ],
                 'countNumby10sCases':
                     [{'questiontext':'Count number by tens in sequence \n\n Count from 10 to 100 by tens', 'expectedAns':'10 20 30 40 50 60 70 80 90 100', 'ansList':['10 20 30 40 50 60 70 80 90 100', '10 20 30 40 60 70  80  90 100', '10 20 30  50  60 70 80 90 100', '20  30  40 50 60 70 80 90 100']}],
@@ -27,7 +27,7 @@ testcases = {
                     [{'questiontext':'Count number from 6 to 13', 'expectedAns':'6 7 8 9 10 11 12 13', 'ansList':['6 7  9 10 11 12 13', '6  7  8 9 10 11 13', '7  8 9 10  11 12 13', '6 7 8 9 10 11 12 13']}],
                 'writeNumCases':
                     [{'questiontext':'Write number 8 in English word', 'expectedAns':'Eight', 'ansList':['Seven', 'Eight', 'Nine', 'Ten']},
-                    {'questiontext':'Write number 13 in English word', 'expectedAns':'Thirteen', 'ansList':['Seven', 'Thirteen', 'Nine', 'Ten']}
+                     {'questiontext':'Write number 13 in English word', 'expectedAns':'Thirteen', 'ansList':['Seven', 'Thirteen', 'Nine', 'Ten']}
                     ],
                 'countObjectCases':
                     [{'questiontext':'How many pears do you see?', 'expectedAns':'6', 'ansList':['5', '6', '7', '8'], 'pictures':[['pear']*6]},
