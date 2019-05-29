@@ -114,7 +114,7 @@ class KidsMath(Frame):
                 for i in range(rows):
                     for j in range(len(plist[i])):
                         if plist[i][j] not in pics:
-                            pics[plist[i][j]] = PhotoImage(file='joypixels/' + plist[i][j] + '.png')
+                            pics[plist[i][j]] = PhotoImage(file='joypixels/' + plist[i][j] + '.gif')
                         lb = Label(self.pictureFrame, image = pics[plist[i][j]])
                         objs.append(lb)
                         lb.grid(row=i, column=j, sticky=W) 
