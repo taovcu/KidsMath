@@ -67,5 +67,5 @@ testcases = {
                 'ClassifyCountTestCases':
                     [{'questiontext':'How many grapess do you see?', 'expectedAns':'6', 'ansList':['6', '7', '8', '9'], 'pictures':[['pear', 'grapes', 'grapes', 'red-apple'], ['pear']+['grapes']*4, ['watermelon']*5]}],
                 'IdentifyShapeTestCases':
-                    [{'questiontext':'What is the shape?', 'expectedAns':'Cone', 'ansList':['Cone', 'Rectangle', 'Triangle', 'Square']}]
+                    [{'questiontext':'What is the shape?', 'expectedAns':'Cone', 'ansList':['Cone', 'Rectangle', 'Triangle', 'Square'], 'pictures':[['cone']]}]
             }
