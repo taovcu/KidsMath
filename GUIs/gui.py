@@ -71,10 +71,10 @@ class KidsMath(Frame):
         self.nextbutton = tk.Button(self.questionPanel, image = photo, command=lambda: self.nextval.set(1))
         #self.nextbutton = tk.Button(self.ansPanel, image = photo, command=lambda: self.nextval.set(1))
         for t in self.selectedTests:
-            self.checkedAns.config(text = '')
             self.checkedAns.pack_forget()
             #getattr(self.testcases, t)()
             self.displayTest(t)
+            
             #self.nextbutton.wait_variable(self.nextval)
         for rb in self.ansButtons:
             rb.pack_forget()
@@ -106,6 +106,13 @@ class KidsMath(Frame):
             self.expectedAns.set(p['expectedAns'])
             self._update_answer(p['ansList'])
             self.checkedAns.pack_forget()
+
+            for i in range(len(self.ansButtons)):
+                if self.answers[i].get() == 'N/A':
+                    self.ansButtons[i].pack_forget()
+                else:
+                    self.ansButtons[i].pack(anchor = CENTER)
+
             objs = []
             if 'pictures' in p:
                 plist = p['pictures']
@@ -208,7 +215,6 @@ class KidsMath(Frame):
         self._create_tab(nb, 'hint', self.hintText, 'Hint')
         self.pictureFrame = Frame(self.questionPanel, name='picture')
         self.pictureFrame.pack()
-        self._create_answer_panel()
 
 
     def helloCallBack(self):
@@ -220,13 +226,13 @@ class KidsMath(Frame):
         self.B1 = Button(self.ansPanel, text = "Check the answer", font=("Courier", 13), command = lambda: self.checkAns(self.expectedAns.get()))
         self.B1.pack(side=TOP, padx=50, pady=30)
         self._create_answer_button()
-        self.checkedAns = Label(self.ansPanel, wraplength='4i', justify=LEFT, anchor=N, text=None)
+        self.checkedAns = Label(self.ansPanel, wraplength='4i', justify=LEFT, anchor=N)
 
     def _create_answer_button(self):
         for i in range(len(self.answers)):
             rb = Radiobutton(self.ansPanel, textvariable = self.answers[i], variable = self.v, value = i, font=("Courier", 12))
-            rb.pack(anchor = CENTER)
             self.ansButtons.append(rb)
+            rb.pack(anchor = CENTER)
 
     def _update_question(self, q):
         self.questText.set(q)
