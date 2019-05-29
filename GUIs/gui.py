@@ -80,10 +80,11 @@ class KidsMath(Frame):
             rb.pack_forget()
         self.B1.pack_forget()
         self.nextbutton.pack_forget()
-        #self.checkedAns.config(text = 'All tests are done.')
         self.checkedAns.pack_forget()
         self._update_question('')
-        Label(self.ansPanel, text='All tests are done.\nCorrect:{}\nWrong:{}\nScore:{}'.format(self.stat['correctCases'], self.stat['wrongCases'], (self.stat['correctCases']/(self.stat['correctCases']+self.stat['wrongCases'])*100))).pack() 
+        self.questionPanel.pack_forget()
+        self.ansPanel.pack_forget()
+        Label(self, text='All tests are done.\nCorrect:{}\nWrong:{}\nScore:{}'.format(self.stat['correctCases'], self.stat['wrongCases'], (self.stat['correctCases']/(self.stat['correctCases']+self.stat['wrongCases'])*100))).pack() 
 
     def checkAns(self, a):
         if self.answers[self.v.get()].get() == a:
