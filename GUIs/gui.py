@@ -1,3 +1,8 @@
+from sys import platform as sys_pf
+if sys_pf == 'darwin':
+    import matplotlib
+    matplotlib.use("TkAgg")
+
 import sys
 sys.path.append('.')
 sys.path.append('../')
@@ -6,6 +11,10 @@ import tkinter as tk
 from tkinter import ttk 
 from tkinter import IntVar
 from tkinter import *
+
+from PIL import ImageTk
+from PIL import Image
+
 
 import Helpers.IO as io
 import random
@@ -56,9 +65,9 @@ class KidsMath(Frame):
 
     def runTests(self):
         self.nextval = tk.IntVar()
-        photo=PhotoImage(file="joypixels/NextSymbol.png")
-        self.cross=PhotoImage(file="joypixels/crossmark.png")
-        self.check=PhotoImage(file="joypixels/checkmark.png")
+        photo=PhotoImage(file="joypixels/NextSymbol.gif")
+        self.cross=PhotoImage(file="joypixels/crossmark.gif")
+        self.check=PhotoImage(file="joypixels/checkmark.gif")
         self.nextbutton = tk.Button(self.questionPanel, image = photo, command=lambda: self.nextval.set(1))
         #self.nextbutton = tk.Button(self.ansPanel, image = photo, command=lambda: self.nextval.set(1))
         for t in self.selectedTests:
