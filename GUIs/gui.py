@@ -153,7 +153,8 @@ class KidsMath(Frame):
         B0 = Button(self, text = 'There are totally {} test cases implemented. Please select tests'.format(len(self.alltestcases)), command=lambda: var.set(1), font=("Courier", 13))
         B0.pack(side=TOP, padx=50, pady=30)
 
-        randomList = [0, 5, 10, 15, 20]
+        self.v.set(-1)
+        randomList = [5, 10, 15, 20]
         self.radioButtons = []
         for i in range(len(randomList)):
             rb = Radiobutton(self, text = 'Randomly Select {} Tests'.format(randomList[i]), variable = self.v, value = i, font=("Courier", 13))
@@ -173,11 +174,12 @@ class KidsMath(Frame):
 
         RandomMethodList = []
         tests = self.alltestcases
-        for i in range(randomList[self.v.get()]):
-            secure_random = random.SystemRandom()
-            m = secure_random.choice(tests)
-            RandomMethodList.append(m)
-            tests.remove(m)
+        if self.v.get() >= 0:
+            for i in range(randomList[self.v.get()]):
+                secure_random = random.SystemRandom()
+                m = secure_random.choice(tests)
+                RandomMethodList.append(m)
+                tests.remove(m)
         self.selectedTests = RandomMethodList
 
         for i in range(len(checkvars)):
