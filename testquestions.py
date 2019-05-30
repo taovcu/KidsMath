@@ -53,7 +53,7 @@ testcases = {
                 'DecomposeNumTestCases':
                     [{'questiontext':'Decompose numbers \n\n 9 = ?', 'expectedAns':'4 + 5', 'ansList':['1 + 7', '2 + 6', '4 + 5', '2 + 8']}],
                 'AddupNumTestCases':
-                    [{'questiontext':'Add numbers \n\n Joy has 4 pears, how many pears Joy need buy to have 9?', 'expectedAns':'5', 'ansList':['6', '9', '5', '13'], 'pictures':[['JoyMedium'], ['pear']*4, ['JoyMedium'], ['pear']*9]}],
+                    [{'questiontext':'Add numbers \n\n Joy has 4 pears, how many pears Joy need buy to have 9?', 'expectedAns':'5', 'ansList':['6', '9', '5', '13'], 'pictures':[['JoyMedium'] + ['pear']*4, ['JoyMedium'] + ['pear']*9]}],
                 'composeObjBaseTenTestCases':
                     [{'questiontext':'Compose object based on ten \n\n Joy has 10 pears, Bob gives Joy 4 more, how many pears does Joy have now?', 'expectedAns':'14', 'ansList':['6', '9', '12', '14'], 'pictures':[['JoyMedium'] + ['pear']*10, ['BobMedium'] + ['pear']*4]}],
                 'decomposeObjBaseTenTestCases':
@@ -63,7 +63,7 @@ testcases = {
                 'decomposeNumBaseTenTestCases':
                     [{'questiontext':'Add numbers \n 17 - 10 = ?', 'expectedAns':'7', 'ansList':['6', '9', '7', '13']}],
                 'CompareWeightTestCases':
-                    [{'questiontext':'Bob is 20 pounds, Joy is 40 pounds, who is heavier?', 'expectedAns':'Joy', 'ansList':['Joy', 'Bob']}],
+                    [{'questiontext':'Bob is 20 pounds, Joy is 40 pounds, who is heavier?', 'expectedAns':'Joy', 'ansList':['Joy', 'Bob'], 'pictures':[['BobMedium', 'ram'], ['JoyMedium', 'horse']]}],
                 'ClassifyCountTestCases':
                     [{'questiontext':'How many grapess do you see?', 'expectedAns':'6', 'ansList':['6', '7', '8', '9'], 'pictures':[['pear', 'grapes', 'grapes', 'red-apple'], ['pear']+['grapes']*4, ['watermelon']*5]}],
                 'IdentifyShapeTestCases':

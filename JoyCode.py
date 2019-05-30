@@ -4,6 +4,7 @@ sys.path.append('.')
 import Helpers.IO as io
 import random
 import emoji
+import settings
 
 from Grade_K.TestCases import TestCases
 import Helpers.Control as CTR
@@ -29,6 +30,10 @@ def chooseGrade():
 This is the main function of the project
 """
 def main():
+    if settings.guiflag:
+        GUI.KidsMath().mainloop()
+        sys.exit(1)
+ 
     print(">>>> Welcome to KidsMath, Enjoy! <<<<")
 
     grade = chooseGrade()
